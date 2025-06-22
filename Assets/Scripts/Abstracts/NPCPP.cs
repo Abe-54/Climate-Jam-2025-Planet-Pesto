@@ -24,13 +24,13 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP
     void Update()
     {
         //If the player presses the interact button and is within a specific range of the npc, interact
-        /*
+        
         if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinRange())
         {
             //Interact
             Interact();
         }
-        */
+        
         
         //Ensure the intract sprite is not active when out of range
         if (interactSprite.gameObject.activeSelf && !IsWithinRange())
