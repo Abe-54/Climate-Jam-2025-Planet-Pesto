@@ -9,9 +9,9 @@ using UnityEngine;
 public class DialogueControllerPP : MonoBehaviour
 {
     //Fields to control the dialogue UI
-    [SerializeField] TextMeshProUGUI speakerName;
-    [SerializeField] TextMeshProUGUI dialogue;
-    [SerializeField] private float typeSpeed = 10;
+    [SerializeField] TextMeshProUGUI speakerNameTextBox;
+    [SerializeField] TextMeshProUGUI dialogueTextBox;
+    [SerializeField] private float typeSpeed = 300;
     //Tracking whether or not the conversation has ended 
     private bool conEnded = false;
     private bool pharagraphEnded = false;
@@ -23,34 +23,52 @@ public class DialogueControllerPP : MonoBehaviour
     private DialogueInstance curInstance;
     private string curPharagraph;
 
+    private const float MAX_TYPE_TIME = 1;
 
 
+    //Courotine for typing out dialogue 
+    private Coroutine typeDialogueCoroutine;
 
+
+    //Initiate next pharagraph or speaker or end convo 
     public void DisplayNextInstance(DialogueTextPP dialogueText)
     {
         //We at the end or start of the dialogue instances?
-        if (dialogueInstances.Count == 0 && pharagraphs.Count==0)
+        if (dialogueInstances.Count == 0 && pharagraphs.Count == 0)
         {
             if (!conEnded)
             {
                 StartConvo(dialogueText);
             }
-            else
+            else if (conEnded && !isTyping)
             {
+
                 EndConvo();
+                return;
+
             }
         }
 
-        if (pharagraphs.Count == 0 && pharagraphEnded)
+        if (pharagraphs.Count == 0 && pharagraphEnded && dialogueInstances.Count != 0 && !isTyping)
         {
             curInstance = dialogueInstances.Dequeue();
-            speakerName.text = curInstance.speakerName;
-            pharagraphEnded=false;
-        }
+            speakerNameTextBox.text = curInstance.speakerName;
+            pharagraphEnded = false;
+            
 
+        }
         DisplayNextPharagraph();
+
+
+
+        if (dialogueInstances.Count == 0)
+        {
+            conEnded = true;
+        }
+        
     }
 
+    //Display the next pharagraph 
     public void DisplayNextPharagraph()
     {
         //Check if that character is done talking
@@ -60,20 +78,29 @@ public class DialogueControllerPP : MonoBehaviour
             {
                 StartPharagraph();
             }
-            else
+            //Make sure to not stop if it is still typing 
+            else if (pharagraphEnded && !isTyping)
             {
                 pharagraphEnded = true;
             }
         }
 
-        curPharagraph = pharagraphs.Dequeue();
+        if (!isTyping)
+        {
+            curPharagraph = pharagraphs.Dequeue();
+            typeDialogueCoroutine = StartCoroutine(TypeDialogueText(curPharagraph));
+        }
+        else
+        {
+            FinishPharagraphEarly();
+        }
 
-        dialogue.text = curPharagraph;
+  
         if (pharagraphs.Count == 0)
         {
             pharagraphEnded = true;
         }
-           
+        
     }
 
     private void StartConvo(DialogueTextPP dialogueText)
@@ -90,13 +117,13 @@ public class DialogueControllerPP : MonoBehaviour
             dialogueInstances.Enqueue(dialogueText.dialogueInstances[i]);
         }
         curInstance = dialogueInstances.Dequeue();
-        speakerName.text = curInstance.speakerName;
-
+        speakerNameTextBox.text = curInstance.speakerName;
 
     }
     private void EndConvo()
     {
-
+        conEnded = false;
+        gameObject.SetActive(false);
     }
 
     private void StartPharagraph()
@@ -107,30 +134,41 @@ public class DialogueControllerPP : MonoBehaviour
             pharagraphs.Enqueue(curInstance.pharagraphs[i]);
         }
     }
-    private void EndPharagraph()
-    {
 
-    }
-    /*
+    //Enumerator 
     private IEnumerator TypeDialogueText(string p)
     {
         isTyping = true;
 
         int maxVisibleChars = 0;
 
-        dialogue.text = p;
-        dialogue.maxVisibleCharacters = maxVisibleChars;
+        dialogueTextBox.text = p;
+        dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
 
         foreach (char c in p.ToCharArray())
         {
 
             maxVisibleChars++;
-            dialogue.maxVisibleCharacters = maxVisibleChars;
+            dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
 
             yield return new WaitForSeconds(MAX_TYPE_TIME / typeSpeed);
         }
 
         isTyping = false;
     }
-    */
+
+    private void FinishPharagraphEarly()
+    {
+        //End corutine 
+        StopCoroutine(typeDialogueCoroutine);
+
+        //Finish displaying text
+        dialogueTextBox.maxVisibleCharacters = curPharagraph.Length;
+        dialogueTextBox.text = curPharagraph;
+        print(curPharagraph);
+
+        //Update isTyping
+        isTyping = false;
+    }
+    
 }
