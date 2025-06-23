@@ -2,17 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 //An abstract class which defines the abilities of NPC's within the game
-public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
+public abstract class NPCPP : MonoBehaviour, IIInteractablePP
 {
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
-    [SerializeField] private DialogueTextPP dialogueText;
-    [SerializeField] private DialogueTextPP scannerText;
-    [SerializeField] private GameObject scannerLayer;
-    [SerializeField] private DialogueControllerPP dialogueController;
     //Variable to keep track of a players location
     private Transform playerTrans;
-    public bool isBeingScanned = false;
 
     private const float INTERACT_RANGE = 5f;
     
@@ -22,36 +17,28 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    //Abstract method for interacting with NPC
+    //Abstract method for interacting with something
     public abstract void Interact();
-
-    //Abstract method for scanning NPC
-    public abstract void Scan();
 
     // Update is called once per frame
     void Update()
     {
         //If the player presses the interact button and is within a specific range of the npc, interact
         
-        if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinRange() && !isBeingScanned)
+        if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinRange())
         {
             //Interact
             Interact();
         }
-
-        if (Keyboard.current.eKey.wasPressedThisFrame && isBeingScanned)
-        {
-            //Interact
-            Scan();
-        }
-
+        
+        
         //Ensure the intract sprite is not active when out of range
-        if (interactSprite.gameObject.activeSelf && (!IsWithinRange() || !isBeingScanned))
+        if (interactSprite.gameObject.activeSelf && !IsWithinRange())
         {
             interactSprite.gameObject.SetActive(false);
         }
 
-        if (!interactSprite.gameObject.activeSelf && (IsWithinRange() || isBeingScanned))
+        if (!interactSprite.gameObject.activeSelf && IsWithinRange())
         {
             interactSprite.gameObject.SetActive(true);
         }
@@ -72,43 +59,5 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Scanner")
-        {
-            Debug.Log("SCANNER ENTERED");
-            isBeingScanned = true;
-            scannerLayer.SetActive(true);
-
-        }
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Scanner")
-        {
-            Debug.Log("SCANNER SCANNER LEFT");
-            isBeingScanned = false;
-            scannerLayer.SetActive(false);
-        }
-
-    }
-
-    public DialogueTextPP GetDialogueText()
-    {
-        return dialogueText;
-    }
-
-    public DialogueTextPP GetScannerText()
-    {
-        return scannerText;
-    }
-
-    public DialogueControllerPP GetDialogueController()
-    {
-        return dialogueController;
-    }
-
-
+   
 }

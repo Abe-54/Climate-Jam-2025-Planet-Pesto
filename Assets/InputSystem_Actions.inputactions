@@ -54,7 +54,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -81,15 +81,6 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "0ff33479-8056-46e6-8171-aa0c2fa2d08e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Scanner",
-                    "type": "Button",
-                    "id": "b1e594ad-1339-484d-ba82-d397a2e01736",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -479,28 +470,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5be61020-bca3-4d25-be29-3428e2e376b0",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Scanner",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8a0caa8e-80f5-484e-a928-a335fccdff06",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Scanner",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
