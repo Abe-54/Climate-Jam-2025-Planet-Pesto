@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
-  m_Name: TestAlina 1
+  m_Name: TestAlina
   m_EditorClassIdentifier: 
   dialogueInstances:
   - speakerName: Alina
     pharagraphs:
-    - '#2 this is my next paragraph'
+    - 'Hey there I.R.I.S! My wacky little robot child '
+    - 'AND I ALSO WILL SAy tHIS '
   - speakerName: I.R.I.S
     pharagraphs:
-    - Yeah, my #2 paragrpah
+    - YEP THATS ME FUNKY ROBOT WITH MANY PRONOUNS
+    - WOAH A SECOND PHARAGRAPH JUST FOR ME?!?!!?!?!?!??!
+  isEvent: 1
+  eventName: Alina1

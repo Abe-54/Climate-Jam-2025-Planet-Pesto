@@ -7,8 +7,10 @@ public class DialogueTextPP : ScriptableObject
 {
    
     public DialogueInstance[] dialogueInstances;
+    public bool isEvent;
+    public string eventName;
 
-  
+
 }
 
 [System.Serializable]
@@ -18,6 +20,7 @@ public struct DialogueInstance
 
     [TextArea(5, 10)]
     public string[] pharagraphs;
+    
 }
 
 

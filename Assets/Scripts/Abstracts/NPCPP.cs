@@ -7,7 +7,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
     [SerializeField] private DialogueTextPP dialogueText;
-    [SerializeField] private DialogueTextPP dialogueText1;
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
@@ -17,23 +16,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private const float INTERACT_RANGE = 5f;
 
-    EventBindingPP<AlinaConversationEvent> alinaConversationEvent;
-
-    private void OnEnable()
-    {
-        alinaConversationEvent = new EventBindingPP<AlinaConversationEvent>(HandleAlinaConversationEvent);
-        EventBusPP<AlinaConversationEvent>.Register(alinaConversationEvent);
-    }
-
-    private void OnDisable()
-    {
-        EventBusPP<AlinaConversationEvent>.Deregister(alinaConversationEvent);
-    }
-
-    void HandleAlinaConversationEvent(AlinaConversationEvent conversationEndEvent)
-    {
-        dialogueText = dialogueText1;
-    }
+   
 
     private void Start()
     {
@@ -51,9 +34,9 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     void Update()
     {
         //If the player presses the interact button and is within a specific range of the npc, interact
-        
         if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinRange() && !isBeingScanned)
         {
+            Debug.Log("HEY");
             //Interact
             Interact();
         }
@@ -117,6 +100,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     public DialogueTextPP GetDialogueText()
     {
         return dialogueText;
+    }
+
+    public void  SetDialogueText(DialogueTextPP newDialogue)
+    {
+        dialogueText = newDialogue;
     }
 
     public DialogueTextPP GetScannerText()

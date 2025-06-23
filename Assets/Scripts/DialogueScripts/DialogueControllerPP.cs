@@ -5,7 +5,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-//Script for controlling dialogue 
+//Singleton for controlling dialogue 
 public class DialogueControllerPP : MonoBehaviour
 {
     //Fields to control the dialogue UI
@@ -26,6 +26,7 @@ public class DialogueControllerPP : MonoBehaviour
     private const float MAX_TYPE_TIME = 1;
 
 
+
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
     
@@ -44,8 +45,7 @@ public class DialogueControllerPP : MonoBehaviour
 
     void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        // Make new dialogue by event system for Alina, calling DialogueText = DialogueText1
-        EventBusPP<AlinaConversationEvent>.Raise(new AlinaConversationEvent());
+      
     }
     
     //Initiate next pharagraph or speaker or end convo 
@@ -60,8 +60,13 @@ public class DialogueControllerPP : MonoBehaviour
             }
             else if (conEnded && !isTyping)
             {
-                
-                EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent());
+                if (dialogueText.isEvent)
+                {
+                    EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent
+                    {
+                        eventName = dialogueText.eventName
+                    });
+                }
                 EndConvo();
                 return;
 

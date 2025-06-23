@@ -1155,7 +1155,7 @@ MonoBehaviour:
     m_ActionId: b1e594ad-1339-484d-ba82-d397a2e01736
     m_ActionName: 'Player/Scanner[/Keyboard/c,/DualShock4GamepadHID/rightShoulder]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
