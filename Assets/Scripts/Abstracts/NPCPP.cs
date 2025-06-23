@@ -8,6 +8,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private SpriteRenderer interactSprite;
     [SerializeField] private DialogueTextPP dialogueText;
     [SerializeField] private DialogueTextPP scannerText;
+    [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
     //Variable to keep track of a players location
     private Transform playerTrans;
@@ -44,16 +45,13 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Scan();
         }
 
-
-
-
         //Ensure the intract sprite is not active when out of range
-        if (interactSprite.gameObject.activeSelf && !IsWithinRange())
+        if (interactSprite.gameObject.activeSelf && (!IsWithinRange() || !isBeingScanned))
         {
             interactSprite.gameObject.SetActive(false);
         }
 
-        if (!interactSprite.gameObject.activeSelf && IsWithinRange())
+        if (!interactSprite.gameObject.activeSelf && (IsWithinRange() || isBeingScanned))
         {
             interactSprite.gameObject.SetActive(true);
         }
@@ -80,6 +78,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
+            scannerLayer.SetActive(true);
 
         }
 
@@ -91,6 +90,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
+            scannerLayer.SetActive(false);
         }
 
     }

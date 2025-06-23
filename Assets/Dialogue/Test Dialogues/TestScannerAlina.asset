@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
   m_Name: TestScannerAlina
   m_EditorClassIdentifier: 
-  dialogueInstances: []
+  dialogueInstances:
+  - speakerName: I.R.I.s
+    pharagraphs:
+    - Scanning...
+    - 'This is Alina she is a super aweomse person '
