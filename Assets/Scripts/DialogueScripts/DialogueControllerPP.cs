@@ -44,7 +44,9 @@ public class DialogueControllerPP : MonoBehaviour
 
     void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        Debug.Log("Test event received!");
+        // Make new dialogue by event system
+        // TODO: Reset the dialogue to 0 so that it does not start at the end of IRIS
+        EventBusPP<AlinaConversationEvent>.Raise(new AlinaConversationEvent());
     }
 
     //Initiate next pharagraph or speaker or end convo 
