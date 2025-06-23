@@ -61,6 +61,7 @@ public class DialogueControllerPP : MonoBehaviour
             }
             else if (conEnded && !isTyping)
             {
+                
                 EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent());
                 EndConvo();
                 return;
@@ -68,13 +69,12 @@ public class DialogueControllerPP : MonoBehaviour
             }
         }
 
-        if (pharagraphs.Count == 0 && pharagraphEnded && dialogueInstances.Count != 0 && !isTyping)
+        if (pharagraphEnded && dialogueInstances.Count != 0 && !isTyping)
         {
             curInstance = dialogueInstances.Dequeue();
             speakerNameTextBox.text = curInstance.speakerName;
             pharagraphEnded = false;
             
-
         }
         DisplayNextPharagraph();
 
@@ -95,7 +95,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             if (!pharagraphEnded)
             {
-                StartPharagraph();
+                StartParagraph();
             }
             //Make sure to not stop if it is still typing 
             else if (pharagraphEnded && !isTyping)
@@ -104,7 +104,7 @@ public class DialogueControllerPP : MonoBehaviour
             }
         }
 
-        if (!isTyping)
+        if (!isTyping )
         {
             curPharagraph = pharagraphs.Dequeue();
             typeDialogueCoroutine = StartCoroutine(TypeDialogueText(curPharagraph));
@@ -141,12 +141,14 @@ public class DialogueControllerPP : MonoBehaviour
     }
     private void EndConvo()
     {
+        pharagraphEnded = false;
         conEnded = false;
         gameObject.SetActive(false);
     }
 
-    private void StartPharagraph()
+    private void StartParagraph()
     {
+        print("Loading in new paragraphs");
         //Queue them pharagraphs 
         for (int i = 0; i < curInstance.pharagraphs.Length; i++)
         {
