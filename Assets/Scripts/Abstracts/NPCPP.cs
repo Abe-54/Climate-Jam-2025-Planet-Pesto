@@ -7,6 +7,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
     [SerializeField] private DialogueTextPP dialogueText;
+    [SerializeField] private DialogueTextPP dialogueText1;
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
@@ -15,7 +16,25 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     public bool isBeingScanned = false;
 
     private const float INTERACT_RANGE = 5f;
-    
+
+    EventBindingPP<AlinaConversationEvent> alinaConversationEvent;
+
+    private void OnEnable()
+    {
+        alinaConversationEvent = new EventBindingPP<AlinaConversationEvent>(HandleAlinaConversationEvent);
+        EventBusPP<AlinaConversationEvent>.Register(alinaConversationEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBusPP<AlinaConversationEvent>.Deregister(alinaConversationEvent);
+    }
+
+    void HandleAlinaConversationEvent(AlinaConversationEvent conversationEndEvent)
+    {
+        dialogueText = dialogueText1;
+    }
+
     private void Start()
     {
         //Grab player location

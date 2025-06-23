@@ -2,30 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class AlenaPP : NPCPP, ITalkablePP
-{
-    
-    [SerializeField] private DialogueTextPP dialogueText;
-    [SerializeField] private DialogueTextPP dialogueText1;
-    [SerializeField] private DialogueControllerPP dialogueController;
-
-    EventBindingPP<AlinaConversationEvent> alinaConversationEvent;
-
-    private void OnEnable()
-    {
-        alinaConversationEvent = new EventBindingPP<AlinaConversationEvent>(HandleAlinaConversationEvent);
-        EventBusPP<AlinaConversationEvent>.Register(alinaConversationEvent);
-    }
-
-    private void OnDisable()
-    {
-        EventBusPP<AlinaConversationEvent>.Deregister(alinaConversationEvent);
-    }
-
-    void HandleAlinaConversationEvent(AlinaConversationEvent conversationEndEvent)
-    {
-        dialogueText = dialogueText1;
-    }
-
+{   
     public override void Scan()
     {
         Talk(GetScannerText());

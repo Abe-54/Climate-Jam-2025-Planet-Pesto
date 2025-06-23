@@ -28,7 +28,7 @@ public class DialogueControllerPP : MonoBehaviour
 
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
-
+    
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
 
     private void OnEnable()
@@ -44,11 +44,10 @@ public class DialogueControllerPP : MonoBehaviour
 
     void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        // Make new dialogue by event system
-        // TODO: Reset the dialogue to 0 so that it does not start at the end of IRIS
+        // Make new dialogue by event system for Alina, calling DialogueText = DialogueText1
         EventBusPP<AlinaConversationEvent>.Raise(new AlinaConversationEvent());
     }
-
+    
     //Initiate next pharagraph or speaker or end convo 
     public void DisplayNextInstance(DialogueTextPP dialogueText)
     {
