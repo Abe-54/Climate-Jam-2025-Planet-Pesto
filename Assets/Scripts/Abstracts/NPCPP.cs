@@ -12,7 +12,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private DialogueControllerPP dialogueController;
     //Variable to keep track of a players location
     private Transform playerTrans;
-    public bool isBeingScanned = false;
+    private bool isBeingScanned = false;
 
     private const float INTERACT_RANGE = 5f;
 
@@ -30,33 +30,25 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Abstract method for scanning NPC
     public abstract void Scan();
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void TriggerInteract()
     {
-        //If the player presses the interact button and is within a specific range of the npc, interact
-        if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinRange() && !isBeingScanned)
-        {
-            Debug.Log("HEY");
-            //Interact
-            Interact();
-        }
+        Interact();
+    }
 
-        if (Keyboard.current.eKey.wasPressedThisFrame && isBeingScanned)
-        {
-            //Interact
-            Scan();
-        }
-
-        //Ensure the intract sprite is not active when out of range
-        if (interactSprite.gameObject.activeSelf && (!IsWithinRange() || !isBeingScanned))
+    public void InteractSpriteToggle()
+    {
+        if (interactSprite.gameObject.activeSelf)
         {
             interactSprite.gameObject.SetActive(false);
         }
 
-        if (!interactSprite.gameObject.activeSelf && (IsWithinRange() || isBeingScanned))
+        else if (!interactSprite.gameObject.activeSelf)
         {
             interactSprite.gameObject.SetActive(true);
         }
+
     }
 
 
@@ -83,6 +75,10 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             scannerLayer.SetActive(true);
 
         }
+        if (collision.gameObject.tag == "Player")
+        {
+            InteractSpriteToggle();
+        }
 
     }
 
@@ -93,6 +89,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
             scannerLayer.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("hey");
+            InteractSpriteToggle();
         }
 
     }
@@ -117,5 +118,18 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         return dialogueController;
     }
 
+    public bool GetIsBeingScanned()
+    {
+        return isBeingScanned;
+    }
+    public SpriteRenderer GetInteractSprite()
+    {
+        return interactSprite;
+    }
+
+    public NPCPP GetNPC()
+    {
+        return this;
+    }
 
 }
