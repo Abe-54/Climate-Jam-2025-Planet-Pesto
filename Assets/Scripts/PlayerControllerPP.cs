@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerControllerPP : MonoBehaviour
 {
+    [Header("Scanner Settings")]
+    //A variable for the scammer game object itself
+    [SerializeField] private GameObject scannerObj;
+    
     [Header("Movement Settings")]
     public bool canMove = true;
     public float moveSpeed = 10f;
@@ -82,6 +86,10 @@ public class PlayerControllerPP : MonoBehaviour
     private bool _dashRefilling;
     private Vector2 _lastDashDir;
     private bool _isDashAttacking;
+    
+    //Scanning Variables
+    //A boolean keeping track whether or not the scanner is active 
+    private bool scanOn = false;
 
     void Start()
     {
@@ -392,6 +400,22 @@ public class PlayerControllerPP : MonoBehaviour
         if (ctx.performed)
         {
             LastPressedDashTime = dashInputBufferTime;
+        }
+    }
+    
+    public void OnScanner(InputAction.CallbackContext ctx)
+    {
+        if (!scanOn)
+        {
+            scannerObj.SetActive(true);
+            scanOn = true;
+        }
+        else
+        {
+            
+            scannerObj.SetActive(false);
+            scanOn = false;
+            scannerObj.transform.SetLocalPositionAndRotation(new Vector3(0, 1, 0),new Quaternion(0,0,0,0));
         }
     }
 
