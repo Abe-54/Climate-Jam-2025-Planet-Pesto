@@ -7,7 +7,7 @@ public interface IEventBindingPP<T> {
 
 public class EventBindingPP<T> : IEventBindingPP<T> where T : IEventPP
 {
-    Action<T> onEvent;
+    Action<T> onEvent = _ => { };
     Action onEventNoArgs = () => { };
 
     Action<T> IEventBindingPP<T>.OnEvent

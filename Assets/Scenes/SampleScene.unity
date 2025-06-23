@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSprite: {fileID: 245187825}
   dialogueText: {fileID: 11400000, guid: 5a44d9fae792b3b46afb7a9143ec8b42, type: 2}
+  dialogueText1: {fileID: 11400000, guid: 3d9df282c9eec0a4787d34bb88037083, type: 2}
   dialogueController: {fileID: 1065464580}
 --- !u!212 &1129553073
 SpriteRenderer:

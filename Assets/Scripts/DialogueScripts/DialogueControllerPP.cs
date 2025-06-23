@@ -29,6 +29,23 @@ public class DialogueControllerPP : MonoBehaviour
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
 
+    EventBindingPP<ConversationEndEvent> conversationEndEvent;
+
+    private void OnEnable()
+    {
+        conversationEndEvent = new EventBindingPP<ConversationEndEvent>(HandleConversationEndEvent);
+        EventBusPP<ConversationEndEvent>.Register(conversationEndEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
+    }
+
+    void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
+    {
+        Debug.Log("Test event received!");
+    }
 
     //Initiate next pharagraph or speaker or end convo 
     public void DisplayNextInstance(DialogueTextPP dialogueText)
@@ -42,7 +59,7 @@ public class DialogueControllerPP : MonoBehaviour
             }
             else if (conEnded && !isTyping)
             {
-
+                EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent());
                 EndConvo();
                 return;
 
