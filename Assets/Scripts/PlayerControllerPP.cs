@@ -24,6 +24,9 @@ public class PlayerControllerPP : MonoBehaviour
     private Vector2 moveInput;
     private bool jumpInput;
 
+    //A boolean keeping track of the current npc that is interactable
+    private NPCPP curNPC;
+
     //A variable for the scammer game object itself
     [SerializeField] private GameObject scannerObj;
 
@@ -78,11 +81,34 @@ public class PlayerControllerPP : MonoBehaviour
         }
     }
 
+    public void OnInteract(InputAction.CallbackContext ctx)
+    {
+        if (!scanOn && ctx.performed && curNPC)
+        {
+            curNPC.TriggerInteract();
+        }
+    }
+
 
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "NPC")
+        {
+            curNPC = collision.gameObject.GetComponent<NPCPP>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "NPC")
+        {
+            curNPC = null;
+        }
+    }
+
 }

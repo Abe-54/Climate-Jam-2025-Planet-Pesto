@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Scanner
   - NPC
+  - DialogueCollider
   layers:
   - Default
   - TransparentFX
