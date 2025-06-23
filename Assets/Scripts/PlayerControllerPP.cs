@@ -19,10 +19,16 @@ public class PlayerControllerPP : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public bool isGrounded;
     public float jumpForce = 10f;
-    
+   
     private Rigidbody2D rb2d;
     private Vector2 moveInput;
     private bool jumpInput;
+
+    //A variable for the scammer game object itself
+    [SerializeField] private GameObject scannerObj;
+
+    //A boolean keeping track whether or not the scanner is active 
+    private bool scanOn = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,8 +62,27 @@ public class PlayerControllerPP : MonoBehaviour
         }
     }
 
+    public void OnScanner(InputAction.CallbackContext ctx)
+    {
+        if (!scanOn)
+        {
+            scannerObj.SetActive(true);
+            scanOn = true;
+        }
+        else
+        {
+            
+            scannerObj.SetActive(false);
+            scanOn = false;
+            scannerObj.transform.SetLocalPositionAndRotation(new Vector3(0, 1, 0),new Quaternion(0,0,0,0));
+        }
+    }
+
+
     void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
+
+   
 }

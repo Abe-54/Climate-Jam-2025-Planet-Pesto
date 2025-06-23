@@ -3,15 +3,19 @@ using UnityEngine.InputSystem;
 
 public class AlenaPP : NPCPP, ITalkablePP
 {
-    [SerializeField] private DialogueTextPP dialogueText;
-    [SerializeField] private DialogueControllerPP dialogueController;
+    
 
+    public override void Scan()
+    {
+        Talk(GetScannerText());
+    }
 
     public override void Interact()
     {
 
-        Talk(dialogueText);
+        Talk(GetDialogueText());
     }
+    /*
     //Upon the player pressing the interact key, if they are within range then initiate the interaction
     public void OnInteract(InputAction.CallbackContext ctx)
     {
@@ -21,10 +25,15 @@ public class AlenaPP : NPCPP, ITalkablePP
             Interact();
         }
     }
+    */
 
     public void Talk(DialogueTextPP dialogueText)
     {
-        dialogueController.DisplayNextInstance(dialogueText);
+        GetDialogueController().DisplayNextInstance(dialogueText);
 
     }
+
+
+
+   
 }
