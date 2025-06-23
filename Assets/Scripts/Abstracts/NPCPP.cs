@@ -15,7 +15,9 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     public bool isBeingScanned = false;
 
     private const float INTERACT_RANGE = 5f;
-    
+
+   
+
     private void Start()
     {
         //Grab player location
@@ -32,9 +34,9 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     void Update()
     {
         //If the player presses the interact button and is within a specific range of the npc, interact
-        
         if (Keyboard.current.eKey.wasPressedThisFrame && IsWithinRange() && !isBeingScanned)
         {
+            Debug.Log("HEY");
             //Interact
             Interact();
         }
@@ -98,6 +100,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     public DialogueTextPP GetDialogueText()
     {
         return dialogueText;
+    }
+
+    public void  SetDialogueText(DialogueTextPP newDialogue)
+    {
+        dialogueText = newDialogue;
     }
 
     public DialogueTextPP GetScannerText()

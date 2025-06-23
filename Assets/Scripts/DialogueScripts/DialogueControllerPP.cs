@@ -5,7 +5,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-//Script for controlling dialogue 
+//Singleton for controlling dialogue 
 public class DialogueControllerPP : MonoBehaviour
 {
     //Fields to control the dialogue UI
@@ -26,10 +26,28 @@ public class DialogueControllerPP : MonoBehaviour
     private const float MAX_TYPE_TIME = 1;
 
 
+
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
+    
+    EventBindingPP<ConversationEndEvent> conversationEndEvent;
 
+    private void OnEnable()
+    {
+        conversationEndEvent = new EventBindingPP<ConversationEndEvent>(HandleConversationEndEvent);
+        EventBusPP<ConversationEndEvent>.Register(conversationEndEvent);
+    }
 
+    private void OnDisable()
+    {
+        EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
+    }
+
+    void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
+    {
+      
+    }
+    
     //Initiate next pharagraph or speaker or end convo 
     public void DisplayNextInstance(DialogueTextPP dialogueText)
     {
@@ -42,7 +60,13 @@ public class DialogueControllerPP : MonoBehaviour
             }
             else if (conEnded && !isTyping)
             {
-                
+                if (dialogueText.isEvent)
+                {
+                    EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent
+                    {
+                        eventName = dialogueText.eventName
+                    });
+                }
                 EndConvo();
                 return;
 
