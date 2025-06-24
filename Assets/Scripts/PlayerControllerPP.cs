@@ -75,9 +75,6 @@ public class PlayerControllerPP : MonoBehaviour
     //A boolean keeping track of the current npc that is interactable
     private NPCPP curNPC;
 
-    //A variable for the scammer game object itself
-    [SerializeField] private GameObject scannerObj;
-
     // Jump variables
     private bool _isJumpCut;
     private bool _isJumpFalling;
@@ -485,23 +482,23 @@ public class PlayerControllerPP : MonoBehaviour
             Gizmos.DrawWireCube(backWallCheck.position, wallCheckSize);
         }
     }
-}
 
 
-private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.tag == "NPC")
-    {
-        curNPC = collision.gameObject.GetComponent<NPCPP>();
-    }
-}
 
-private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "NPC")
         {
-            curNPC = null;
+            curNPC = collision.gameObject.GetComponent<NPCPP>();
         }
     }
 
-}
+    private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.tag == "NPC")
+            {
+                curNPC = null;
+            }
+        }
+
+    }
