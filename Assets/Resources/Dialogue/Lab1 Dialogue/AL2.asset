@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
+  m_Name: AL2
+  m_EditorClassIdentifier: 
+  dialogueInstances:
+  - speakerName: 'Alina:'
+    pharagraphs:
+    - 'Oh my poor babies, this is not good, not good at all. '
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - Hello, I have introduced myself to Olean. You appear to be in distress, may
+      I help to un-distress...I suppose?
+  - speakerName: 'Alina:'
+    pharagraphs:
+    - "Oh ain\u2019t you sweeter than a honey bee\u2019s bottom. It seems all my
+      recent little critters seem to all got some pretty bad burns on\u2019em. "
+  - speakerName: 'I.R.I.S: '
+    pharagraphs:
+    - 'A forest fire is the likely culprit, it is summer time after all and the outside
+      humidity is quite low in this region. '
+  - speakerName: 'Alina: '
+    pharagraphs:
+    - "You\u2019re not wrong darling but these burns have been coming for a bit now
+      too long now. Oh darn, the more I think about it the more worried I get. I.R.I.S
+      would you do me a favor?"
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - ' Of course...I suppose'
+  - speakerName: 'Alina:'
+    pharagraphs:
+    - '[Alina walks over and prints a small ticket from a little ram looking robot
+      on the worktable] '
+    - The tram can get you to the edge of the city where the forest starts. Could
+      you please go take a look and see if maybe something is starting these fires?
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - I would be happy to help if this would un-distress your distress.
+    - '[Alina hands I.R.I.S the ticket]'
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - "It really would, but be careful now that steam chamber you run on takes a
+      long while to fill up again. Don\u2019t go using up too much of it. "
+  isEvent: 0
+  eventName: 

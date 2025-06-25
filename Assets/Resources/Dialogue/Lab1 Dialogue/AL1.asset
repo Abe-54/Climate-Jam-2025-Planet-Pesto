@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
+  m_Name: AL1
+  m_EditorClassIdentifier: 
+  dialogueInstances:
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - 'Starting system boot up process. Initializing Inquisitive Reconnaissance and
+      Investigation System. '
+  - speakerName: 'Alina:'
+    pharagraphs:
+    - "Hey there sweetheart welcome to the world. I\u2019m Alina, can you tell me
+      a little bout yourself?"
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - 'Hello my name is I.R.I.S, I am a robot designed to learn through exploration.
+      I look forward to...looking I suppose. Thank you for existence.  '
+  - speakerName: 'Alina: '
+    pharagraphs:
+    - "\tHm, in that case, if you wanna take a look around the place feel free, everything
+      here\u2019s your home too. While you\u2019re at it go introduce yourself to
+      Olean, he should be in his \u2018lab\u2019. Though he might be busier than
+      a moth in a mitten so take care around his \u2018creations\u2019. \r\n"
+  isEvent: 1
+  eventName: AL1

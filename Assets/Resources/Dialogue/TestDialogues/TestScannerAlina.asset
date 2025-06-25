@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: TestScannerAlina
   m_EditorClassIdentifier: 
   dialogueInstances:
-  - speakerName: I.R.I.s
+  - speakerName: I.R.I.S
     pharagraphs:
     - Scanning...
-    - 'This is Alina she is a super aweomse person '
+    - This is Alina she is a super smart scientist who helped make yours truly.
+  isEvent: 0
+  eventName: 

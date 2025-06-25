@@ -14,12 +14,16 @@ public class ScannerControllerPP : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        
     }
 
     //Method for controlling movement
     public void OnLook(InputAction.CallbackContext ctx)
     {
-        moveInput = ctx.ReadValue<Vector2>();
+       
+       moveInput = ctx.ReadValue<Vector2>();
+     
+       
     }
 
     public void OnScanInitiate(InputAction.CallbackContext ctx)

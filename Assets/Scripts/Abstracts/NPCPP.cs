@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 {
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
+    [SerializeField] private SpriteRenderer interactIcon;
     [SerializeField] private DialogueTextPP dialogueText;
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private GameObject scannerLayer;
@@ -16,7 +18,38 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private const float INTERACT_RANGE = 5f;
 
-   
+    //Courotine for flashing  
+    private Coroutine scanFlashEvent;
+
+    private const float FLASH_TIME = .5f;
+
+    EventBindingPP<ConversationEndEvent> conversationEndEvent;
+    EventBindingPP<ScannerOnEvent> scannerOnEvent;
+
+    private void OnEnable()
+    {
+        conversationEndEvent = new EventBindingPP<ConversationEndEvent>(HandleConversationEndEvent);
+        EventBusPP<ConversationEndEvent>.Register(conversationEndEvent);
+
+        scannerOnEvent = new EventBindingPP<ScannerOnEvent>(HandleScannerOnEvent);
+        EventBusPP<ScannerOnEvent>.Register(scannerOnEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
+        EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
+    }
+
+
+
+    public abstract void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent);
+
+    public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
+    {
+        Debug.Log("EHEHRHENRER");
+        StartCoroutine(ScanFlash());
+    }
 
     private void Start()
     {
@@ -37,8 +70,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         Interact();
     }
 
+    //Method to toggle the interact sprite
     public void InteractSpriteToggle()
     {
+
+        //Check if it is already on 
         if (interactSprite.gameObject.activeSelf)
         {
             interactSprite.gameObject.SetActive(false);
@@ -46,6 +82,10 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
         else if (!interactSprite.gameObject.activeSelf)
         {
+            //Check which control scheme we are using to effect InputIcon
+            
+
+
             interactSprite.gameObject.SetActive(true);
         }
 
@@ -73,6 +113,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
             scannerLayer.SetActive(true);
+            InteractSpriteToggle();
 
         }
         if (collision.gameObject.tag == "Player")
@@ -89,6 +130,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
             scannerLayer.SetActive(false);
+            InteractSpriteToggle();
         }
         if (collision.gameObject.tag == "Player")
         {
@@ -97,6 +139,26 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         }
 
     }
+
+
+    private IEnumerator ScanFlash()
+    {
+        scannerLayer.SetActive(true);
+
+        yield return new WaitForSeconds(FLASH_TIME);
+
+        scannerLayer.SetActive(false);
+
+    }
+
+
+
+
+
+
+
+
+
 
     public DialogueTextPP GetDialogueText()
     {
@@ -132,4 +194,5 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         return this;
     }
 
+ 
 }

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
+  m_Name: OL1
+  m_EditorClassIdentifier: 
+  dialogueInstances:
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - Hello my name is I.R.I.S, I am a robot designed to learn through exploration.
+      I was tasked to introduce myself to you, and I have...I suppose.
+  - speakerName: 'Olean: '
+    pharagraphs:
+    - "[Olean turns from his work table quickly with a clenched fist like he\u2019s
+      holding something. On the work table is what appears to be a small apple tree
+      in a pot with a broken bottom] \r\n"
+    - "\rPERFECT! You are just in time to witness what could be my greatest creation
+      yet. \r\n"
+    - '[He opens his hand to reveal a small grape looking fruit]'
+    - "Isn\u2019t it beautiful!!! Can you guess what it is?!"
+  - speakerName: 'I.R.I.S:'
+    pharagraphs:
+    - "Initiating scan\u2026\u2026\u2026"
+    - 'this appears to be a cross species between a honey crisp apple and a muscat
+      grape. '
+  - speakerName: 'Olean:'
+    pharagraphs:
+    - "You\u2019ve got it in one my friend, Alina\u2019s lovelys always exceeds my
+      expectations. Yes I have managed to condense the taste and mouthfeel of a Malus
+      Pumila to the size of a Vitis Vinifera, the first GRAPPLE!!! MWHAHAHAHHA \r\n"
+  - speakerName: 'I.R.I.S: '
+    pharagraphs:
+    - 'Fascinating, although it appears that the roots have broken the tree''s container. '
+  - speakerName: 'I.R.I.S: '
+    pharagraphs:
+    - "What? OH OH MY STARBOMB YOU CAN\u2019T DIE ON ME!!"
+    - '[Olean quickly turns back and begins work at the table]'
+  isEvent: 1
+  eventName: OL1

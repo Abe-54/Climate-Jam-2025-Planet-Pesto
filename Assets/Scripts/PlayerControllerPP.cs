@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -93,8 +94,28 @@ public class PlayerControllerPP : MonoBehaviour
     //A boolean keeping track whether or not the scanner is active 
     private bool scanOn = false;
 
+
+    EventBindingPP<ScannerOnEvent> scannerOnEvent;
+
+    private void OnEnable()
+    {
+        scannerOnEvent = new EventBindingPP<ScannerOnEvent>(HandleScannerOnEvent);
+        EventBusPP<ScannerOnEvent>.Register(scannerOnEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
+    }
+    void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
+    {
+       
+    }
+
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         rb2d = GetComponent<Rigidbody2D>();
         defaultGravityScale = rb2d.gravityScale;
         _dashesLeft = dashAmount;
@@ -407,17 +428,20 @@ public class PlayerControllerPP : MonoBehaviour
     
     public void OnScanner(InputAction.CallbackContext ctx)
     {
-        if (!scanOn)
+        if (!scanOn && ctx.performed)
         {
+            EventBusPP<ScannerOnEvent>.Raise(new ScannerOnEvent { });
             scannerObj.SetActive(true);
             scanOn = true;
+            scannerObj.transform.SetLocalPositionAndRotation(new Vector3(0, 4, 0), new Quaternion(0, 0, 0, 0));
+            
         }
-        else
+        else if(scanOn && ctx.performed)
         {
             
             scannerObj.SetActive(false);
             scanOn = false;
-            scannerObj.transform.SetLocalPositionAndRotation(new Vector3(0, 1, 0),new Quaternion(0,0,0,0));
+            scannerObj.transform.SetLocalPositionAndRotation(new Vector3(0, 4, 0),new Quaternion(0,0,0,0));
         }
     }
 
