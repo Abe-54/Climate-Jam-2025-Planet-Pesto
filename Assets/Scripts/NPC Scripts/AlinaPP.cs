@@ -1,31 +1,16 @@
-using UnityEditor.Rendering;
+
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class AlenaPP : NPCPP, ITalkablePP
 {
-
-    EventBindingPP<ConversationEndEvent> conversationEndEvent;
-
-
-    private void OnEnable()
-    {
-        conversationEndEvent = new EventBindingPP<ConversationEndEvent>(HandleConversationEndEvent);
-        EventBusPP<ConversationEndEvent>.Register(conversationEndEvent);
-    }
-
-    private void OnDisable()
-    {
-        EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
-    }
-
-    void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
+    public override void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
         if (conversationEndEvent.eventName == "Alina1")
         {
             SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/TestDialogues/TestAlina1"));
         }
-        else if(conversationEndEvent.eventName == "AL1")
+        else if (conversationEndEvent.eventName == "AL1")
         {
             SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Lab1 Dialogue/AL1.5"));
         }
@@ -69,8 +54,5 @@ public class AlenaPP : NPCPP, ITalkablePP
         GetDialogueController().DisplayNextInstance(dialogueText);
 
     }
-
-
-
-   
 }
+

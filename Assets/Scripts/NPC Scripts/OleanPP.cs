@@ -1,6 +1,6 @@
-using UnityEditor.Rendering;
+
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class OleanPP : NPCPP, ITalkablePP
 {
@@ -19,7 +19,7 @@ public class OleanPP : NPCPP, ITalkablePP
         EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
     }
 
-    void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
+    public override void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
         if (conversationEndEvent.eventName == "OL1")
         {

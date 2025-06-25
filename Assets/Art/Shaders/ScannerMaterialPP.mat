@@ -55,7 +55,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.849
+    - _Alpha: 0.84
     - _Blur_Offset: 0
     - _Lines_Speed: 0.25
     - _QueueControl: 0
