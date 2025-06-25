@@ -73,6 +73,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
             scannerLayer.SetActive(true);
+            InteractSpriteToggle();
 
         }
         if (collision.gameObject.tag == "Player")
@@ -89,6 +90,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
             scannerLayer.SetActive(false);
+            InteractSpriteToggle();
         }
         if (collision.gameObject.tag == "Player")
         {

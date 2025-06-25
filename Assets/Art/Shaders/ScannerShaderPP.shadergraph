@@ -14,6 +14,9 @@
         },
         {
             "m_Id": "cd87171796594ca69f3a7fe93a27b1f3"
+        },
+        {
+            "m_Id": "28319d215ef64ee0ac8cc0aa01506bd3"
         }
     ],
     "m_Keywords": [],
@@ -461,6 +464,37 @@
 }
 
 {
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "28319d215ef64ee0ac8cc0aa01506bd3",
+    "m_Guid": {
+        "m_GuidSerialized": "4b18c387-0925-4a5c-896b-4d27be65b737"
+    },
+    "m_Name": "_MainTex",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "_MainTex",
+    "m_DefaultReferenceName": "_MainTex",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": true,
+    "useTilingAndOffset": false,
+    "useTexelSize": true,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
+}
+
+{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_ObjectId": "29c0a512cceb44a2853c5218a529b762",
@@ -581,10 +615,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 2142.755859375,
-            "y": 1272.41455078125,
-            "width": 0.0,
-            "height": 0.0
+            "x": 2201.333251953125,
+            "y": 1272.66650390625,
+            "width": 209.333251953125,
+            "height": 304.0
         }
     },
     "m_Slots": [
@@ -623,7 +657,7 @@
     "m_ShaderOutputName": "In",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 1.0,
+        "x": 0.5,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -1608,6 +1642,9 @@
         },
         {
             "m_Id": "cd87171796594ca69f3a7fe93a27b1f3"
+        },
+        {
+            "m_Id": "28319d215ef64ee0ac8cc0aa01506bd3"
         }
     ]
 }
@@ -1857,8 +1894,8 @@
     "m_ShaderOutputName": "Frequency",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 3.0,
-        "y": 5.0
+        "x": 6.0,
+        "y": 15.0
     },
     "m_DefaultValue": {
         "x": 1.0,

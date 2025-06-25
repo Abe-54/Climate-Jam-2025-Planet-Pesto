@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
-  m_Name: TestScannerAlina
+  m_Name: TestScannerOlean
   m_EditorClassIdentifier: 
   dialogueInstances:
   - speakerName: I.R.I.S
     pharagraphs:
     - Scanning...
-    - This is Alina she is a super smart scientist who helped make yours truly.
+    - 'This is Olean, he aims to create the omni fruit which combines every flavor
+      of fruit into one plant. '
   isEvent: 0
   eventName: 

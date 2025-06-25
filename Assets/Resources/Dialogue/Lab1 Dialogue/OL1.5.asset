@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
-  m_Name: TestScannerAlina
+  m_Name: OL1.5
   m_EditorClassIdentifier: 
   dialogueInstances:
-  - speakerName: I.R.I.S
+  - speakerName: 'I.R.I.S:'
     pharagraphs:
-    - Scanning...
-    - This is Alina she is a super smart scientist who helped make yours truly.
+    - 'I believe he is too focused on his work to be able to hear me at this juncture
+      it would seem. '
   isEvent: 0
   eventName: 

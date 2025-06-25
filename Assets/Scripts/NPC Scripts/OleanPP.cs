@@ -2,7 +2,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AlenaPP : NPCPP, ITalkablePP
+public class OleanPP : NPCPP, ITalkablePP
 {
 
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
@@ -21,17 +21,9 @@ public class AlenaPP : NPCPP, ITalkablePP
 
     void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        if (conversationEndEvent.eventName == "Alina1")
+        if (conversationEndEvent.eventName == "OL1")
         {
-            SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/TestDialogues/TestAlina1"));
-        }
-        else if(conversationEndEvent.eventName == "AL1")
-        {
-            SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Lab1 Dialogue/AL1.5"));
-        }
-        else if (conversationEndEvent.eventName == "OL1")
-        {
-            SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Lab1 Dialogue/AL2"));
+            SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Lab1 Dialogue/OL1.5"));
         }
     }
 
@@ -72,5 +64,5 @@ public class AlenaPP : NPCPP, ITalkablePP
 
 
 
-   
+
 }
