@@ -402,6 +402,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2684,7 +2710,110 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      T_Keyboard_Mouse_Key_Alt_Sprite_0: 1677812988373916760
+      T_Keyboard_Mouse_Key_Alt_Sprite_1: 6006387667453756802
+      T_Keyboard_Mouse_Key_Alt_Sprite_10: -4109064419662169934
+      T_Keyboard_Mouse_Key_Alt_Sprite_100: -4939244205598247407
+      T_Keyboard_Mouse_Key_Alt_Sprite_101: -1804303760241330065
+      T_Keyboard_Mouse_Key_Alt_Sprite_102: -907101968896572353
+      T_Keyboard_Mouse_Key_Alt_Sprite_11: 2939922833130837722
+      T_Keyboard_Mouse_Key_Alt_Sprite_12: 6748503173048866334
+      T_Keyboard_Mouse_Key_Alt_Sprite_13: -2327162260318421805
+      T_Keyboard_Mouse_Key_Alt_Sprite_14: 4013001359116430627
+      T_Keyboard_Mouse_Key_Alt_Sprite_15: -5704790351236084975
+      T_Keyboard_Mouse_Key_Alt_Sprite_16: 7044689648812838966
+      T_Keyboard_Mouse_Key_Alt_Sprite_17: -3429536659195132243
+      T_Keyboard_Mouse_Key_Alt_Sprite_18: 8478815643513521736
+      T_Keyboard_Mouse_Key_Alt_Sprite_19: -7308831082671303727
+      T_Keyboard_Mouse_Key_Alt_Sprite_2: -8666764297459228624
+      T_Keyboard_Mouse_Key_Alt_Sprite_20: 7004831198629056278
+      T_Keyboard_Mouse_Key_Alt_Sprite_21: 2199934447483100909
+      T_Keyboard_Mouse_Key_Alt_Sprite_22: -9190638120245087760
+      T_Keyboard_Mouse_Key_Alt_Sprite_23: -2545650874061220196
+      T_Keyboard_Mouse_Key_Alt_Sprite_24: -2189781475441388440
+      T_Keyboard_Mouse_Key_Alt_Sprite_25: -767939949387018186
+      T_Keyboard_Mouse_Key_Alt_Sprite_26: 8962998787656607797
+      T_Keyboard_Mouse_Key_Alt_Sprite_27: 4463317688801893284
+      T_Keyboard_Mouse_Key_Alt_Sprite_28: 7325976334972540053
+      T_Keyboard_Mouse_Key_Alt_Sprite_29: 8977160851612702862
+      T_Keyboard_Mouse_Key_Alt_Sprite_3: -5401379480600214783
+      T_Keyboard_Mouse_Key_Alt_Sprite_30: -9054564155968056641
+      T_Keyboard_Mouse_Key_Alt_Sprite_31: -5375382539077274259
+      T_Keyboard_Mouse_Key_Alt_Sprite_32: 5023121202578604757
+      T_Keyboard_Mouse_Key_Alt_Sprite_33: -3485762341335196399
+      T_Keyboard_Mouse_Key_Alt_Sprite_34: -2841733143651118605
+      T_Keyboard_Mouse_Key_Alt_Sprite_35: -637868810714332016
+      T_Keyboard_Mouse_Key_Alt_Sprite_36: 8368937349243554756
+      T_Keyboard_Mouse_Key_Alt_Sprite_37: -7298681306904377608
+      T_Keyboard_Mouse_Key_Alt_Sprite_38: 3865264521414471318
+      T_Keyboard_Mouse_Key_Alt_Sprite_39: -2475764667958905944
+      T_Keyboard_Mouse_Key_Alt_Sprite_4: -3987697154175311488
+      T_Keyboard_Mouse_Key_Alt_Sprite_40: -3007390193897254010
+      T_Keyboard_Mouse_Key_Alt_Sprite_41: -661705642572137592
+      T_Keyboard_Mouse_Key_Alt_Sprite_42: -8318644941813310653
+      T_Keyboard_Mouse_Key_Alt_Sprite_43: 1397299282632692971
+      T_Keyboard_Mouse_Key_Alt_Sprite_44: -2763111602793620805
+      T_Keyboard_Mouse_Key_Alt_Sprite_45: -9080991158997924326
+      T_Keyboard_Mouse_Key_Alt_Sprite_46: -8846577250274187213
+      T_Keyboard_Mouse_Key_Alt_Sprite_47: 822751037278016879
+      T_Keyboard_Mouse_Key_Alt_Sprite_48: 1416020360912334379
+      T_Keyboard_Mouse_Key_Alt_Sprite_49: -4253838480335463322
+      T_Keyboard_Mouse_Key_Alt_Sprite_5: -8086176097531758302
+      T_Keyboard_Mouse_Key_Alt_Sprite_50: 5684259359392666680
+      T_Keyboard_Mouse_Key_Alt_Sprite_51: -3217442794220474933
+      T_Keyboard_Mouse_Key_Alt_Sprite_52: 1270983309564619952
+      T_Keyboard_Mouse_Key_Alt_Sprite_53: 3180213302200895296
+      T_Keyboard_Mouse_Key_Alt_Sprite_54: 7670538411969218168
+      T_Keyboard_Mouse_Key_Alt_Sprite_55: 5014073222719047254
+      T_Keyboard_Mouse_Key_Alt_Sprite_56: 5578935378544268063
+      T_Keyboard_Mouse_Key_Alt_Sprite_57: 1463105613027670380
+      T_Keyboard_Mouse_Key_Alt_Sprite_58: 3025428932108714643
+      T_Keyboard_Mouse_Key_Alt_Sprite_59: -763748504176288242
+      T_Keyboard_Mouse_Key_Alt_Sprite_6: 6632110573826810351
+      T_Keyboard_Mouse_Key_Alt_Sprite_60: 3218944147963878938
+      T_Keyboard_Mouse_Key_Alt_Sprite_61: -336382336837151475
+      T_Keyboard_Mouse_Key_Alt_Sprite_62: 2634248081462959391
+      T_Keyboard_Mouse_Key_Alt_Sprite_63: 8568069199849713646
+      T_Keyboard_Mouse_Key_Alt_Sprite_64: -3192962937090479594
+      T_Keyboard_Mouse_Key_Alt_Sprite_65: -7596918843533944779
+      T_Keyboard_Mouse_Key_Alt_Sprite_66: 2309329674891661519
+      T_Keyboard_Mouse_Key_Alt_Sprite_67: 5629750658030483240
+      T_Keyboard_Mouse_Key_Alt_Sprite_68: 1873846110693532988
+      T_Keyboard_Mouse_Key_Alt_Sprite_69: -5804864201901535382
+      T_Keyboard_Mouse_Key_Alt_Sprite_7: -3712434444252955073
+      T_Keyboard_Mouse_Key_Alt_Sprite_70: 5261417212150349044
+      T_Keyboard_Mouse_Key_Alt_Sprite_71: -9108464182562202329
+      T_Keyboard_Mouse_Key_Alt_Sprite_72: 5382503379838841258
+      T_Keyboard_Mouse_Key_Alt_Sprite_73: 5746978680167667923
+      T_Keyboard_Mouse_Key_Alt_Sprite_74: 8661365733632368188
+      T_Keyboard_Mouse_Key_Alt_Sprite_75: -8227362747071842026
+      T_Keyboard_Mouse_Key_Alt_Sprite_76: -4961847713023876401
+      T_Keyboard_Mouse_Key_Alt_Sprite_77: -1200344244814478517
+      T_Keyboard_Mouse_Key_Alt_Sprite_78: -6497079922860004598
+      T_Keyboard_Mouse_Key_Alt_Sprite_79: 5832367337585290964
+      T_Keyboard_Mouse_Key_Alt_Sprite_8: 7254175849734053333
+      T_Keyboard_Mouse_Key_Alt_Sprite_80: -5548874369441900132
+      T_Keyboard_Mouse_Key_Alt_Sprite_81: 486960648301867683
+      T_Keyboard_Mouse_Key_Alt_Sprite_82: 6227106512823922587
+      T_Keyboard_Mouse_Key_Alt_Sprite_83: 4248045445052803038
+      T_Keyboard_Mouse_Key_Alt_Sprite_84: 902671380412190574
+      T_Keyboard_Mouse_Key_Alt_Sprite_85: 6464814514546212400
+      T_Keyboard_Mouse_Key_Alt_Sprite_86: -1619729138347912877
+      T_Keyboard_Mouse_Key_Alt_Sprite_87: 7113218204117136599
+      T_Keyboard_Mouse_Key_Alt_Sprite_88: 5918352174698124263
+      T_Keyboard_Mouse_Key_Alt_Sprite_89: -1385523942722993484
+      T_Keyboard_Mouse_Key_Alt_Sprite_9: 318283196904061199
+      T_Keyboard_Mouse_Key_Alt_Sprite_90: 4563065256260170565
+      T_Keyboard_Mouse_Key_Alt_Sprite_91: -1681470691430666370
+      T_Keyboard_Mouse_Key_Alt_Sprite_92: 602315376454288569
+      T_Keyboard_Mouse_Key_Alt_Sprite_93: -8170740645980223479
+      T_Keyboard_Mouse_Key_Alt_Sprite_94: 3839803984966897515
+      T_Keyboard_Mouse_Key_Alt_Sprite_95: 2910308816395545511
+      T_Keyboard_Mouse_Key_Alt_Sprite_96: 9098121619290222524
+      T_Keyboard_Mouse_Key_Alt_Sprite_97: 7256967861346531279
+      T_Keyboard_Mouse_Key_Alt_Sprite_98: 2478335872029572987
+      T_Keyboard_Mouse_Key_Alt_Sprite_99: -6721186108783994833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,6 +12,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "dart.analysis.tool.window.visible": "false",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
