@@ -24,8 +24,6 @@ public class DialogueControllerPP : MonoBehaviour
 
     private const float MAX_TYPE_TIME = 1;
 
-
-
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
     
@@ -59,13 +57,10 @@ public class DialogueControllerPP : MonoBehaviour
             }
             else if (conEnded && !isTyping)
             {
-                if (dialogueText.isEvent)
+                EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent
                 {
-                    EventBusPP<ConversationEndEvent>.Raise(new ConversationEndEvent
-                    {
-                        eventName = dialogueText.eventName
-                    });
-                }
+                    eventName = dialogueText.eventName
+                });
                 EndConvo();
                 return;
 
