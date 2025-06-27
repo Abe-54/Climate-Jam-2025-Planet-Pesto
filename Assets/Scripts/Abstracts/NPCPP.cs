@@ -53,8 +53,13 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private void Start()
     {
+        dialogueController = FindFirstObjectByType<DialogueControllerPP>();
         //Grab player location
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!dialogueController)
+        {
+            dialogueController = Object.FindFirstObjectByType<DialogueControllerPP>();
+        }
     }
 
     //Abstract method for interacting with NPC
