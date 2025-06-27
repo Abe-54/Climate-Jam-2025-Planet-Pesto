@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: OL1
   m_EditorClassIdentifier: 
   dialogueInstances:
-  - speakerName: 'I.R.I.S:'
+  - speakerName: I.R.I.S
     pharagraphs:
     - Hello my name is I.R.I.S, I am a robot designed to learn through exploration.
       I was tasked to introduce myself to you, and I have...I suppose.
-  - speakerName: 'Olean: '
+  - speakerName: Olean
     pharagraphs:
     - "[Olean turns from his work table quickly with a clenched fist like he\u2019s
       holding something. On the work table is what appears to be a small apple tree
@@ -26,20 +26,20 @@ MonoBehaviour:
       yet. \r\n"
     - '[He opens his hand to reveal a small grape looking fruit]'
     - "Isn\u2019t it beautiful!!! Can you guess what it is?!"
-  - speakerName: 'I.R.I.S:'
+  - speakerName: I.R.I.S
     pharagraphs:
     - "Initiating scan\u2026\u2026\u2026"
     - 'this appears to be a cross species between a honey crisp apple and a muscat
       grape. '
-  - speakerName: 'Olean:'
+  - speakerName: Olean
     pharagraphs:
     - "You\u2019ve got it in one my friend, Alina\u2019s lovelys always exceeds my
       expectations. Yes I have managed to condense the taste and mouthfeel of a Malus
       Pumila to the size of a Vitis Vinifera, the first GRAPPLE!!! MWHAHAHAHHA \r\n"
-  - speakerName: 'I.R.I.S: '
+  - speakerName: I.R.I.S
     pharagraphs:
     - 'Fascinating, although it appears that the roots have broken the tree''s container. '
-  - speakerName: 'I.R.I.S: '
+  - speakerName: Olean
     pharagraphs:
     - "What? OH OH MY STARBOMB YOU CAN\u2019T DIE ON ME!!"
     - '[Olean quickly turns back and begins work at the table]'

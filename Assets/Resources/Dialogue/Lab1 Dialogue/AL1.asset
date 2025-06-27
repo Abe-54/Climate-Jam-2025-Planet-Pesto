@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: AL1
   m_EditorClassIdentifier: 
   dialogueInstances:
-  - speakerName: 'I.R.I.S:'
+  - speakerName: I.R.I.S
     pharagraphs:
     - 'Starting system boot up process. Initializing Inquisitive Reconnaissance and
       Investigation System. '
-  - speakerName: 'Alina:'
+  - speakerName: Alina
     pharagraphs:
     - "Hey there sweetheart welcome to the world. I\u2019m Alina, can you tell me
       a little bout yourself?"
-  - speakerName: 'I.R.I.S:'
+  - speakerName: I.R.I.S
     pharagraphs:
     - 'Hello my name is I.R.I.S, I am a robot designed to learn through exploration.
       I look forward to...looking I suppose. Thank you for existence.  '
-  - speakerName: 'Alina: '
+  - speakerName: Alina
     pharagraphs:
     - "\tHm, in that case, if you wanna take a look around the place feel free, everything
       here\u2019s your home too. While you\u2019re at it go introduce yourself to

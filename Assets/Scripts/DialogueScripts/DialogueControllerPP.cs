@@ -3,13 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
+
+
+
 
 //Singleton for controlling dialogue 
 public class DialogueControllerPP : MonoBehaviour
 {
     //Fields to control the dialogue UI
     [SerializeField] TextMeshProUGUI speakerNameTextBox;
+    [SerializeField] GameObject dialogueUI;
     [SerializeField] TextMeshProUGUI dialogueTextBox;
+    [SerializeField] Image characterHead;
     [SerializeField] private float typeSpeed = 300;
     //Tracking whether or not the conversation has ended 
     private bool conEnded = false;
@@ -70,6 +77,7 @@ public class DialogueControllerPP : MonoBehaviour
         if (pharagraphEnded && dialogueInstances.Count != 0 && !isTyping)
         {
             curInstance = dialogueInstances.Dequeue();
+            SelectHeadImage();
             speakerNameTextBox.text = curInstance.speakerName;
             pharagraphEnded = false;
             
@@ -123,9 +131,9 @@ public class DialogueControllerPP : MonoBehaviour
     private void StartConvo(DialogueTextPP dialogueText)
     {
         //Turn on 
-        if (!gameObject.activeSelf)
+        if (!dialogueUI.activeSelf)
         {
-            gameObject.SetActive(true);    
+            dialogueUI.SetActive(true);    
         }
 
         //Queue them instances 
@@ -134,6 +142,7 @@ public class DialogueControllerPP : MonoBehaviour
             dialogueInstances.Enqueue(dialogueText.dialogueInstances[i]);
         }
         curInstance = dialogueInstances.Dequeue();
+        SelectHeadImage();
         speakerNameTextBox.text = curInstance.speakerName;
 
     }
@@ -141,7 +150,7 @@ public class DialogueControllerPP : MonoBehaviour
     {
         pharagraphEnded = false;
         conEnded = false;
-        gameObject.SetActive(false);
+        dialogueUI.SetActive(false);
     }
 
     private void StartParagraph()
@@ -188,6 +197,26 @@ public class DialogueControllerPP : MonoBehaviour
 
         //Update isTyping
         isTyping = false;
+    }
+
+    private void SelectHeadImage()
+    {
+
+        switch (curInstance.speakerName)
+        {
+            case "I.R.I.S":
+                {
+                    characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/IRIS");
+                    break;
+                }
+            default:
+                {
+                    characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                    break;
+                }
+        }
+
+
     }
     
 }
