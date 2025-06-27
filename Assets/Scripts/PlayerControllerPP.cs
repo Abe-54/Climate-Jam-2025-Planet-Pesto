@@ -10,7 +10,7 @@ public class PlayerControllerPP : MonoBehaviour
     [SerializeField] private GameObject scannerObj;
     
     [Header("Movement Settings")]
-    public bool canMove = true;
+    public bool canPlayerMove = true;
     public float moveSpeed = 10f;
     public float runAccelAmount = 90f;
     public float runDeccelAmount = 60f;
@@ -122,7 +122,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void Update()
     {
-        if (!canMove) return;
+        if (!canPlayerMove) return;
 
         UpdateTimers();
         CheckCollisions();
@@ -135,7 +135,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!canMove) return;
+        if (!canPlayerMove) return;
 
         if (!IsDashing)
         {
@@ -433,7 +433,6 @@ public class PlayerControllerPP : MonoBehaviour
             scannerObj.SetActive(true);
             scanOn = true;
             scannerObj.transform.SetLocalPositionAndRotation(new Vector3(0, 4, 0), new Quaternion(0, 0, 0, 0));
-            
         }
         else if(scanOn && ctx.performed)
         {
@@ -485,8 +484,14 @@ public class PlayerControllerPP : MonoBehaviour
     {
         if (!scanOn && ctx.performed && curNPC)
         {
+            SetCanMove(false);
             curNPC.TriggerInteract();
         }
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        canPlayerMove = canMove;
     }
 
 

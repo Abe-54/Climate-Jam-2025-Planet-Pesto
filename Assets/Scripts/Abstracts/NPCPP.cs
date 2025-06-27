@@ -13,7 +13,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
     //Variable to keep track of a players location
-    private Transform playerTrans;
+    public Transform playerTrans { get; private set; }
     private bool isBeingScanned = false;
 
     private const float INTERACT_RANGE = 5f;
@@ -68,8 +68,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Abstract method for scanning NPC
     public abstract void Scan();
 
-
-
     public void TriggerInteract()
     {
         Interact();
@@ -89,14 +87,10 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             //Check which control scheme we are using to effect InputIcon
             
-
-
             interactSprite.gameObject.SetActive(true);
         }
 
     }
-
-
 
     //Method to keep track of whether or not the player is within range to interact
     public bool IsWithinRange()
@@ -145,7 +139,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     }
 
-
     private IEnumerator ScanFlash()
     {
         scannerLayer.SetActive(true);
@@ -155,15 +148,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         scannerLayer.SetActive(false);
 
     }
-
-
-
-
-
-
-
-
-
 
     public DialogueTextPP GetDialogueText()
     {
