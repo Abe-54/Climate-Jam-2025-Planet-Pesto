@@ -6,4 +6,5 @@ public struct ConversationEndEvent : IEventPP {
 
 public struct ScannerOnEvent : IEventPP { }
 
+
 public struct AlinaConversationEvent : IEventPP { }

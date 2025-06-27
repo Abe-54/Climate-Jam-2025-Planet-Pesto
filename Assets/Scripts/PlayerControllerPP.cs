@@ -95,9 +95,14 @@ public class PlayerControllerPP : MonoBehaviour
 
 
     EventBindingPP<ScannerOnEvent> scannerOnEvent;
+    EventBindingPP<ConversationEndEvent> conversationEndEvent;
+ 
 
     private void OnEnable()
     {
+        conversationEndEvent = new EventBindingPP<ConversationEndEvent>(HandleConversationEndEvent);
+        EventBusPP<ConversationEndEvent>.Register(conversationEndEvent);
+
         scannerOnEvent = new EventBindingPP<ScannerOnEvent>(HandleScannerOnEvent);
         EventBusPP<ScannerOnEvent>.Register(scannerOnEvent);
     }
@@ -105,10 +110,16 @@ public class PlayerControllerPP : MonoBehaviour
     private void OnDisable()
     {
         EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
+        EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
     }
     void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
     {
        
+    }
+
+    public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
+    {
+        SetCanMove(true);
     }
 
     void Start()
