@@ -271,7 +271,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8bc8a58bdce2948fb8d939fd77841515, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -566,14 +566,14 @@ MonoBehaviour:
   frontWallCheck: {fileID: 9032820103831790658}
   backWallCheck: {fileID: 2471976135112717642}
   wallCheckSize: {x: 0.5, y: 1}
-  wallJumpForce: {x: 8, y: 16}
-  wallJumpTime: 0.2
-  wallJumpRunLerp: 0.5
+  wallJumpForce: {x: 25, y: 25}
+  wallJumpTime: 0.6
+  wallJumpRunLerp: 0.05
   slideSpeed: -5
   slideAccel: 5
   dashAmount: 1
   dashSpeed: 20
-  dashAttackTime: 0.15
+  dashAttackTime: 0
   dashEndTime: 0.1
   dashEndSpeed: {x: 15, y: 15}
   dashInputBufferTime: 0.1
