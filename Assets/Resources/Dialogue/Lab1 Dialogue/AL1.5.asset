@@ -16,11 +16,11 @@ MonoBehaviour:
   - speakerName: Alina
     pharagraphs:
     - Hey there looky bot, need anything?
-  - speakerName: 'I.R.I.S: '
+  - speakerName: I.R.I.S
     pharagraphs:
     - "You told me to greet this Olean, but I am unsure of where this \u2018lab\u2019
       of his is located. I am confused...I suppose. "
-  - speakerName: 'Alina:'
+  - speakerName: Alina
     pharagraphs:
     - 'Oh silly me, just keep on headin right down the hall, it''s the first thing
       past the doors. You''ll know it when you see it. '
