@@ -953,7 +953,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -101.146866, y: 1.6071444, z: -10}
+  m_LocalPosition: {x: -101.05814, y: 1.6071444, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2026,7 +2026,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3417,7 +3417,7 @@ PrefabInstance:
       objectReference: {fileID: 1436262220}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -107.279564
+      value: -107.252945
       objectReference: {fileID: 0}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3890,6 +3890,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -876546973899608171, guid: 74ddb309d87e8b2469a0464f7b7df731, type: 3}
+    - target: {fileID: 982543390210003042, guid: 4504bcd192ca82b418bddbcaa9266cd8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1339540367288769299, guid: 4504bcd192ca82b418bddbcaa9266cd8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -55.390003
@@ -4102,7 +4106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2923604565845955191, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2923604565845955191, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -4384,6 +4388,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6874074510254648641, guid: 19813d7861dab3545a51a98d4cecb495, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7582724281191970094, guid: 19813d7861dab3545a51a98d4cecb495, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5850868
