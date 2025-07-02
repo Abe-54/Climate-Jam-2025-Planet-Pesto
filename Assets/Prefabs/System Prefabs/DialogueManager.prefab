@@ -48,4 +48,4 @@ MonoBehaviour:
   dialogueUI: {fileID: 0}
   dialogueTextBox: {fileID: 0}
   characterHead: {fileID: 0}
-  typeSpeed: 200
+  typeSpeed: 50

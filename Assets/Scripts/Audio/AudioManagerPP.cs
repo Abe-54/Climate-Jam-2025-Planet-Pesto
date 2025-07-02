@@ -68,10 +68,10 @@ public class AudioManagerPP : MonoBehaviour
             SwitchCurCharacter(speakerName); 
         }
 
-        if (dialogueSource.isPlaying)
-        {
-            dialogueSource.Stop();
-        }
+        //if (dialogueSource.isPlaying)
+        //{
+        //    dialogueSource.Stop();
+        //}
         //Ensure the audio is only played at the characters frequency level
         if (displayCount % curCharacter.frequencyLevel == 0)
         {
