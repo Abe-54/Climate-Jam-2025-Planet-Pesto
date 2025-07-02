@@ -61,8 +61,8 @@ public class OleanPP : NPCPP, ITalkablePP
         GetDialogueController().DisplayNextInstance(dialogueText);
 
     }
-
-
-
-
+    public override void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
+    {
+        InteractSpriteToggle(false);
+    }
 }

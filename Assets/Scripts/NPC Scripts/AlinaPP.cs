@@ -55,5 +55,10 @@ public class AlenaPP : NPCPP, ITalkablePP
         GetDialogueController().DisplayNextInstance(dialogueText);
 
     }
+
+    public override void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
+    {
+        InteractSpriteToggle(false);
+    }
 }
 
