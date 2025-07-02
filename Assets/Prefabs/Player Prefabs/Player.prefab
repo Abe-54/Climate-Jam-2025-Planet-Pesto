@@ -258,7 +258,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &4345420744977588839
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scannerObj: {fileID: 3862573861829832897}
-  canMove: 1
+  canPlayerMove: 1
   moveSpeed: 10
   runAccelAmount: 90
   runDeccelAmount: 60

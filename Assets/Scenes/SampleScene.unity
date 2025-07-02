@@ -451,7 +451,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10052252, y: -0.31557608, z: -10}
+  m_LocalPosition: {x: 0.46502066, y: 0.6844239, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -957,6 +957,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065464578}
   m_CullTransparentMesh: 1
+--- !u!1 &1102630917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4031392370045111264, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+  m_PrefabInstance: {fileID: 3753105681039054361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1102630923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102630917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13e5e9e812b9940891d2e2be9eb0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSteam: 0
+  currentSteam: 0
 --- !u!1 &1844938700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,21 +1440,21 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 8bc8a58bdce2948fb8d939fd77841515, type: 2}
-    - target: {fileID: 5702480158243822959, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
-      propertyPath: wallJumpTime
-      value: 0.6
+    - target: {fileID: 4345420744977588839, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.89
       objectReference: {fileID: 0}
-    - target: {fileID: 5702480158243822959, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
-      propertyPath: wallJumpForce.x
-      value: 25
+    - target: {fileID: 4345420744977588839, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 6.82
       objectReference: {fileID: 0}
-    - target: {fileID: 5702480158243822959, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
-      propertyPath: wallJumpForce.y
-      value: 25
+    - target: {fileID: 4345420744977588839, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.89
       objectReference: {fileID: 0}
-    - target: {fileID: 5702480158243822959, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
-      propertyPath: wallJumpRunLerp
-      value: 0.05
+    - target: {fileID: 4345420744977588839, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 6.82
       objectReference: {fileID: 0}
     - target: {fileID: 5720579704025933445, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1480,7 +1499,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4031392370045111264, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1102630923}
   m_SourcePrefab: {fileID: 100100000, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
 --- !u!1001 &6385495326336165353
 PrefabInstance:
@@ -1642,11 +1664,11 @@ PrefabInstance:
       objectReference: {fileID: 306037353}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.10052538
+      value: 0.4650221
       objectReference: {fileID: 0}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3000007
+      value: -6.300001
       objectReference: {fileID: 0}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.z
