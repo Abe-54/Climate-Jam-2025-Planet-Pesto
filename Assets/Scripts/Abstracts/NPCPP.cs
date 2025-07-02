@@ -12,11 +12,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
+    
     //Variable to keep track of a players location
     public Transform playerTrans { get; private set; }
     private bool isBeingScanned = false;
-
-    private const float INTERACT_RANGE = 5f;
+   
 
     //Courotine for flashing  
     private Coroutine scanFlashEvent;
@@ -24,6 +24,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     private const float FLASH_TIME = .5f;
 
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
+    EventBindingPP<ConversationStartEvent> conversationStartEvent;
     EventBindingPP<ScannerOnEvent> scannerOnEvent;
 
     private void OnEnable()
@@ -31,13 +32,19 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         conversationEndEvent = new EventBindingPP<ConversationEndEvent>(HandleConversationEndEvent);
         EventBusPP<ConversationEndEvent>.Register(conversationEndEvent);
 
+        conversationStartEvent = new EventBindingPP<ConversationStartEvent>(HandleConversationStartEvent);
+        EventBusPP<ConversationStartEvent>.Register(conversationStartEvent);
+
         scannerOnEvent = new EventBindingPP<ScannerOnEvent>(HandleScannerOnEvent);
         EventBusPP<ScannerOnEvent>.Register(scannerOnEvent);
+
+
     }
 
     private void OnDisable()
     {
         EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
+        EventBusPP<ConversationStartEvent>.Deregister(conversationStartEvent);
         EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
     }
 
@@ -45,9 +52,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     public abstract void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent);
 
+    public abstract void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent);
+
     public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
     {
-        Debug.Log("EHEHRHENRER");
+       
         StartCoroutine(ScanFlash());
     }
 
@@ -74,35 +83,9 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     }
 
     //Method to toggle the interact sprite
-    public void InteractSpriteToggle()
+    public void InteractSpriteToggle(bool state)
     {
-
-        //Check if it is already on 
-        if (interactSprite.gameObject.activeSelf)
-        {
-            interactSprite.gameObject.SetActive(false);
-        }
-
-        else if (!interactSprite.gameObject.activeSelf)
-        {
-            //Check which control scheme we are using to effect InputIcon
-            
-            interactSprite.gameObject.SetActive(true);
-        }
-
-    }
-
-    //Method to keep track of whether or not the player is within range to interact
-    public bool IsWithinRange()
-    {
-        if (Vector2.Distance(transform.position, playerTrans.position) < INTERACT_RANGE)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        interactSprite.gameObject.SetActive(state);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -112,12 +95,13 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
             scannerLayer.SetActive(true);
-            InteractSpriteToggle();
+            InteractSpriteToggle(true);
+            
 
         }
         if (collision.gameObject.tag == "Player")
         {
-            InteractSpriteToggle();
+            InteractSpriteToggle(true);
         }
 
     }
@@ -129,12 +113,12 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
             scannerLayer.SetActive(false);
-            InteractSpriteToggle();
+            InteractSpriteToggle(false);
         }
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("hey");
-            InteractSpriteToggle();
+            
+            InteractSpriteToggle(false);
         }
 
     }
