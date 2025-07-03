@@ -57,10 +57,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
     {
-
-        //StartCoroutine(ScanFlash());
         animator.SetTrigger("ScanFlash");
-
     }
 
     private void Start()
@@ -101,7 +98,8 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
-            scannerLayer.SetActive(true);
+            //scannerLayer.SetActive(true);
+            animator.SetBool("BeingScanned", true);
             InteractSpriteToggle(true);
             
 
@@ -119,8 +117,8 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
-            scannerLayer.SetActive(false);
-           
+            //scannerLayer.SetActive(false);
+            animator.SetBool("BeingScanned", false);
             InteractSpriteToggle(false);
         }
         if (collision.gameObject.tag == "Player")
