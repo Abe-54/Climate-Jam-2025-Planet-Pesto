@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4140852192051090775
+--- !u!114 &-4867983789372523337
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Scanner
+  m_Name: ScannerFilter
   m_Shader: {fileID: -6465566751694194690, guid: 74ddb309d87e8b2469a0464f7b7df731, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: cdeba67aa568ddc40bdfb5d41f045e74, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -59,8 +59,11 @@ Material:
     - _Blur_Offset: 0
     - _LineWidth: 0.05
     - _Lines_Speed: 0.05
+    - _OverlayAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ScanLineFrequency: 3
+    - _ScanLineSpeed: 1.5
     m_Colors:
     - _Base_Color: {r: 0.05564588, g: 0.3836477, b: 0.006032157, a: 1}
     - _LineWidth_Height: {r: 0.05, g: 0, b: 0, a: 0}
