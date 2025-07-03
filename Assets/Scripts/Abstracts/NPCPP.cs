@@ -12,6 +12,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
+    [SerializeField] private Animator animator;
     
     //Variable to keep track of a players location
     public Transform playerTrans { get; private set; }
@@ -56,8 +57,10 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
     {
-       
-        StartCoroutine(ScanFlash());
+
+        //StartCoroutine(ScanFlash());
+        animator.SetTrigger("ScanFlash");
+
     }
 
     private void Start()
@@ -68,6 +71,10 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         if (!dialogueController)
         {
             dialogueController = Object.FindFirstObjectByType<DialogueControllerPP>();
+        }
+        if (!animator)
+        {
+            animator = GetComponent<Animator>();
         }
     }
 
@@ -113,6 +120,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
             scannerLayer.SetActive(false);
+           
             InteractSpriteToggle(false);
         }
         if (collision.gameObject.tag == "Player")
