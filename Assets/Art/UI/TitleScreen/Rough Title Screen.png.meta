@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rough Title Screen_0: 3011540625192968724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
