@@ -1,23 +1,15 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-//An abstract class which defines the abilities of NPC's within the game
-public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
+public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
 {
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
-    [SerializeField] private SpriteRenderer interactIcon;
-    [SerializeField] private DialogueTextPP dialogueText;
     [SerializeField] private DialogueTextPP scannerText;
-    [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
     [SerializeField] private Animator animator;
-    
-    //Variable to keep track of a players location
-    public Transform playerTrans { get; private set; }
-    private bool isBeingScanned = false;
 
+    private bool isBeingScanned = false;
 
     private const float FLASH_TIME = .5f;
 
@@ -35,8 +27,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
         scannerOnEvent = new EventBindingPP<ScannerOnEvent>(HandleScannerOnEvent);
         EventBusPP<ScannerOnEvent>.Register(scannerOnEvent);
-
-
     }
 
     private void OnDisable()
@@ -45,8 +35,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         EventBusPP<ConversationStartEvent>.Deregister(conversationStartEvent);
         EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
     }
-
-
 
     public abstract void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent);
 
@@ -57,31 +45,8 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         animator.SetTrigger("ScanFlash");
     }
 
-    private void Start()
-    {
-        dialogueController = FindFirstObjectByType<DialogueControllerPP>();
-        //Grab player location
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
-        if (!dialogueController)
-        {
-            dialogueController = Object.FindFirstObjectByType<DialogueControllerPP>();
-        }
-        if (!animator)
-        {
-            animator = GetComponent<Animator>();
-        }
-    }
-
-    //Abstract method for interacting with NPC
-    public abstract void Interact();
-
     //Abstract method for scanning NPC
     public abstract void Scan();
-
-    public void TriggerInteract()
-    {
-        Interact();
-    }
 
     //Method to toggle the interact sprite
     public void InteractSpriteToggle(bool state)
@@ -96,15 +61,9 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
             animator.SetBool("BeingScanned", true);
-            InteractSpriteToggle(true);
-            
 
-        }
-        if (collision.gameObject.tag == "Player")
-        {
             InteractSpriteToggle(true);
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -113,27 +72,12 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
+
             animator.SetBool("BeingScanned", false);
             InteractSpriteToggle(false);
         }
-        if (collision.gameObject.tag == "Player")
-        {
-            
-            InteractSpriteToggle(false);
-        }
-
     }
 
-
-    public DialogueTextPP GetDialogueText()
-    {
-        return dialogueText;
-    }
-
-    public void  SetDialogueText(DialogueTextPP newDialogue)
-    {
-        dialogueText = newDialogue;
-    }
 
     public DialogueTextPP GetScannerText()
     {
@@ -153,11 +97,9 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     {
         return interactSprite;
     }
-
-    public NPCPP GetNPC()
+    
+    public InteractableObjectPP GetInteractableObject()
     {
         return this;
     }
-
- 
 }
