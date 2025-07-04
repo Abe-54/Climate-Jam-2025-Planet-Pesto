@@ -17,10 +17,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Variable to keep track of a players location
     public Transform playerTrans { get; private set; }
     private bool isBeingScanned = false;
-   
 
-    //Courotine for flashing  
-    private Coroutine scanFlashEvent;
 
     private const float FLASH_TIME = .5f;
 
@@ -98,7 +95,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
-            //scannerLayer.SetActive(true);
             animator.SetBool("BeingScanned", true);
             InteractSpriteToggle(true);
             
@@ -117,7 +113,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
-            //scannerLayer.SetActive(false);
             animator.SetBool("BeingScanned", false);
             InteractSpriteToggle(false);
         }
@@ -129,15 +124,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     }
 
-    private IEnumerator ScanFlash()
-    {
-        scannerLayer.SetActive(true);
-
-        yield return new WaitForSeconds(FLASH_TIME);
-
-        scannerLayer.SetActive(false);
-
-    }
 
     public DialogueTextPP GetDialogueText()
     {

@@ -6,13 +6,10 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
     [SerializeField] private DialogueTextPP scannerText;
-    [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
+    [SerializeField] private Animator animator;
 
     private bool isBeingScanned = false;
-
-    //Courotine for flashing  
-    private Coroutine scanFlashEvent;
 
     private const float FLASH_TIME = .5f;
 
@@ -45,7 +42,7 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
 
     public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
     {
-        StartCoroutine(ScanFlash());
+        animator.SetTrigger("ScanFlash");
     }
 
     //Abstract method for scanning NPC
@@ -63,7 +60,8 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
         {
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
-            scannerLayer.SetActive(true);
+            animator.SetBool("BeingScanned", true);
+
             InteractSpriteToggle(true);
         }
     }
@@ -74,19 +72,12 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
         {
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
-            scannerLayer.SetActive(false);
+
+            animator.SetBool("BeingScanned", false);
             InteractSpriteToggle(false);
         }
     }
 
-    private IEnumerator ScanFlash()
-    {
-        scannerLayer.SetActive(true);
-
-        yield return new WaitForSeconds(FLASH_TIME);
-
-        scannerLayer.SetActive(false);
-    }
 
     public DialogueTextPP GetScannerText()
     {

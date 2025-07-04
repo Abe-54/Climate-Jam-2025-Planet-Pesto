@@ -4,7 +4,7 @@ public class GrassPP : InteractableObjectPP
 {
     public override void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        throw new System.NotImplementedException();
+       
     }
 
     public override void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
