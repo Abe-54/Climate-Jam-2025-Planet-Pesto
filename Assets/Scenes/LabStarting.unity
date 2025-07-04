@@ -3993,6 +3993,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1771542872}
     - target: {fileID: 4428219427566511397, guid: 4504bcd192ca82b418bddbcaa9266cd8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428219427566511397, guid: 4504bcd192ca82b418bddbcaa9266cd8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4bfc114872d708e45a9301bcf0a840cc, type: 2}
@@ -4385,6 +4389,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4386130514726457706, guid: 19813d7861dab3545a51a98d4cecb495, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1497032326}
     - target: {fileID: 4386130514726457706, guid: 19813d7861dab3545a51a98d4cecb495, type: 3}
       propertyPath: dialogueText
       value: 
