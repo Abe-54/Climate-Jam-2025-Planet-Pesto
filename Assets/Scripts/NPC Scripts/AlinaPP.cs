@@ -18,7 +18,6 @@ public class AlenaPP : NPCPP, ITalkablePP
         {
             SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Lab1 Dialogue/AL2"));
         }
-
     }
 
     //Code handeling what happens when she is scanned 
