@@ -39,7 +39,8 @@ public class PlayerControllerPP : MonoBehaviour
     public float slideSpeed = -5f;
     public float slideAccel = 5f;
 
-    [Header("Dash Settings")]
+    [Header("Dash Settings")] 
+    public int dashSteamUsageAmt = 10;
     public int dashAmount = 1;
     public float dashSpeed = 20f;
     public float dashAttackTime = 0.15f;
@@ -52,6 +53,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     // Components
     private Rigidbody2D rb2d;
+    private SteamControllerPP steamController;
     private float defaultGravityScale;
 
     // Input
@@ -96,10 +98,9 @@ public class PlayerControllerPP : MonoBehaviour
     //A boolean keeping track whether or not the scanner is active 
     private bool scanOn = false;
 
-
+    //Events
     EventBindingPP<ScannerOnEvent> scannerOnEvent;
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
- 
 
     private void OnEnable()
     {
@@ -130,6 +131,7 @@ public class PlayerControllerPP : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         rb2d = GetComponent<Rigidbody2D>();
+        steamController = GetComponent<SteamControllerPP>();
         defaultGravityScale = rb2d.gravityScale;
         _dashesLeft = dashAmount;
     }
@@ -164,6 +166,8 @@ public class PlayerControllerPP : MonoBehaviour
             Slide();
     }
 
+    // Update Timers for Player Movement Options
+    // Void Function -> subtract the delta time from the Last X Time
     void UpdateTimers()
     {
         LastOnGroundTime -= Time.deltaTime;
@@ -174,6 +178,9 @@ public class PlayerControllerPP : MonoBehaviour
         LastPressedDashTime -= Time.deltaTime;
     }
 
+    // Physics Collision
+    // Checks if player is on Ground/Wall
+    // Also where Coyote Time is Reset
     void CheckCollisions()
     {
         if (!IsDashing && !IsJumping)
@@ -197,6 +204,8 @@ public class PlayerControllerPP : MonoBehaviour
         }
     }
 
+    // Normal Jump Logic is handled here
+    // Also sets jump variables, such as IsJumping/IsWallJumping
     void HandleJumpLogic()
     {
         if (IsJumping && rb2d.linearVelocity.y < 0)
@@ -241,6 +250,9 @@ public class PlayerControllerPP : MonoBehaviour
         }
     }
 
+    // This is where Dash Logic is handled
+    // It runs the dashSleep Coroutine and resets related variables
+    // This is also where Steam will get removed
     void HandleDashLogic()
     {
         if (CanDash() && LastPressedDashTime > 0)
@@ -256,11 +268,17 @@ public class PlayerControllerPP : MonoBehaviour
             IsJumping = false;
             IsWallJumping = false;
             _isJumpCut = false;
-
+            
+            // REMOVING STEAM HERE
+            steamController.RemoveSteam(dashSteamUsageAmt);
+            
+            // STARTING THE DASH HERE
             StartCoroutine(StartDash(_lastDashDir));
         }
     }
 
+    // This is where the wall sliding logic to detect if the
+    // player is pushing onto the wall
     void HandleSlideLogic()
     {
         if (CanSlide() && ((LastOnWallLeftTime > 0 && moveInput.x < 0) ||
@@ -270,6 +288,8 @@ public class PlayerControllerPP : MonoBehaviour
             IsSliding = false;
     }
 
+    // This controller uses different gravities based on different states
+    // This is where the player's rigidbody2d gravity gets modified
     void HandleGravity()
     {
         if (!_isDashAttacking)
@@ -296,40 +316,51 @@ public class PlayerControllerPP : MonoBehaviour
             rb2d.gravityScale = 0;
         }
     }
-
+    
+    // Simple function to alter where the player's facing
     void HandleFacing()
     {
-        if (moveInput.x != 0)
-            CheckDirectionToFace(moveInput.x > 0);
+        if (moveInput.x != 0 && (moveInput.x > 0) != IsFacingRight)
+            FlipX();
     }
 
+    // This is how the player runs in our game
     void Run(float lerpAmount)
     {
+        //We find our final run speed
         float targetSpeed = moveInput.x * moveSpeed;
         targetSpeed = Mathf.Lerp(rb2d.linearVelocity.x, targetSpeed, lerpAmount);
 
+        // Find the acceleration rate
         float accelRate = (LastOnGroundTime > 0) ?
             ((Mathf.Abs(targetSpeed) > 0.01f) ? runAccelAmount : runDeccelAmount) :
             ((Mathf.Abs(targetSpeed) > 0.01f) ? runAccelAmount * accelInAir : runDeccelAmount * deccelInAir);
-
         float speedDif = targetSpeed - rb2d.linearVelocity.x;
         float movement = speedDif * accelRate;
-
+    
+        // Finally add the movement to the player via rigidbody2d force
         rb2d.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
 
+    // This is where the player jumps in our game
+    // and resets any variables related to it
     void Jump()
     {
         LastPressedJumpTime = 0;
         LastOnGroundTime = 0;
-
+    
+        // Find the amount of force to give
         float force = jumpForce;
+        // This dampens the player's falling velocity
         if (rb2d.linearVelocity.y < 0)
             force -= rb2d.linearVelocity.y;
-
+    
+        // Finally adding the jump force to the player via rigidbody2d impulse
         rb2d.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 
+    // This is where the player wall jumps in our game
+    // and resets any variables related to it
     void WallJump(int dir)
     {
         LastPressedJumpTime = 0;
@@ -342,48 +373,64 @@ public class PlayerControllerPP : MonoBehaviour
         if (IsFacingRight != shouldFaceRight)
             FlipX();
 
+        // Figure out how much wall jump force to give the player
         Vector2 force = new Vector2(wallJumpForce.x, wallJumpForce.y);
         force.x *= dir;
 
+        // Counteracts the player's current horizontal velocity
         if (Mathf.Sign(rb2d.linearVelocity.x) != Mathf.Sign(force.x))
             force.x -= rb2d.linearVelocity.x;
-
+        
+        // Counteracts the player's current vertical velocity to ensure it jumps upward 
         if (rb2d.linearVelocity.y < 0)
             force.y -= rb2d.linearVelocity.y;
 
+        // Finally adding the wall jump force to the player via rigidbody2d impulse
         rb2d.AddForce(force, ForceMode2D.Impulse);
     }
 
+    // This is where the ACTUAL wall sliding happens
     void Slide()
     {
+        // checks if the player is moving up
         if (rb2d.linearVelocity.y > 0)
         {
+            // Immediately cancels the upward velocity by applying an equal and opposite impulse force.
             rb2d.AddForce(-rb2d.linearVelocity.y * Vector2.up, ForceMode2D.Impulse);
         }
 
+        // Find the target speed to slide
         float speedDif = slideSpeed - rb2d.linearVelocity.y;
         float movement = speedDif * slideAccel;
+        // This prevents overshooting the target velocity by limiting the force to what's needed to reach the target speed in one physics frame
         movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime),
                               Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
 
+        // Finally Add the force to the player to slow down their fall
         rb2d.AddForce(movement * Vector2.up);
     }
 
+    // This is the ACTUAL dash code / coroutine
+    // It requires the direction to dash in and resets any variables needed DURING the dash
     IEnumerator StartDash(Vector2 dir)
     {
+        // Reseting necessery variables
         LastOnGroundTime = 0;
         LastPressedDashTime = 0;
         float startTime = Time.time;
         _dashesLeft--;
         _isDashAttacking = true;
         rb2d.gravityScale = 0;
-
+    
+        // THE DASH
         while (Time.time - startTime <= dashAttackTime)
         {
+            // continuously give the player speed in a specified direction
             rb2d.linearVelocity = dir.normalized * dashSpeed;
             yield return null;
         }
-
+        
+        // Stops the dash & resets all related variables
         startTime = Time.time;
         _isDashAttacking = false;
         rb2d.gravityScale = defaultGravityScale;
@@ -393,18 +440,22 @@ public class PlayerControllerPP : MonoBehaviour
         {
             yield return null;
         }
-
+    
+        // Disable Dash State
         IsDashing = false;
     }
-
+    
+    // Co-Routine to add X number of dashes to player
     IEnumerator RefillDash(int amount)
     {
         _dashRefilling = true;
         yield return new WaitForSeconds(dashRefillTime);
         _dashRefilling = false;
+        // This caps the number of dashes left to the amount the player started with
         _dashesLeft = Mathf.Min(dashAmount, _dashesLeft + amount);
     }
-
+    
+    // This is a Sleep helper function to pause the player for X amount of seconds
     IEnumerator Sleep(float duration)
     {
         Time.timeScale = 0;
@@ -471,7 +522,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     bool CanDash()
     {
-        if (!IsDashing && _dashesLeft < dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
+        if (!IsDashing && _dashesLeft < dashAmount && LastOnGroundTime > 0 && !_dashRefilling && steamController.HasSteam())
         {
             StartCoroutine(RefillDash(1));
         }
@@ -480,13 +531,9 @@ public class PlayerControllerPP : MonoBehaviour
 
     bool CanSlide() => LastOnWallTime > 0 && !IsJumping && !IsWallJumping &&
                       !IsDashing && LastOnGroundTime <= 0;
+    
 
-    void CheckDirectionToFace(bool isMovingRight)
-    {
-        if (isMovingRight != IsFacingRight)
-            FlipX();
-    }
-
+    // Simple Function to Flip the players X facing direction
     void FlipX()
     {
         Vector3 scale = transform.localScale;
@@ -507,8 +554,7 @@ public class PlayerControllerPP : MonoBehaviour
     {
         canPlayerMove = canMove;
     }
-
-
+    
     void OnDrawGizmos()
     {
         if (groundCheck != null)
