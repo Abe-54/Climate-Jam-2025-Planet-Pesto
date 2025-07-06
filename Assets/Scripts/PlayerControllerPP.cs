@@ -72,8 +72,11 @@ public class PlayerControllerPP : MonoBehaviour
     public float LastOnWallLeftTime { get; private set; }
     public float LastPressedJumpTime { get; private set; }
     public float LastPressedDashTime { get; private set; }
-    //A boolean keeping track of the current npc that is interactable
+    //A value keeping track of the current npc that is interactable
     private NPCPP curNPC;
+    //A value keeping track of the current interactable object
+    private IIInteractablePP curInteractable;
+
 
     // Jump variables
     private bool _isJumpCut;
@@ -496,7 +499,7 @@ public class PlayerControllerPP : MonoBehaviour
         if (!scanOn && ctx.performed && curNPC)
         {
             SetCanMove(false);
-            curNPC.TriggerInteract();
+            curNPC.Interact();
         }
     }
 
@@ -530,6 +533,7 @@ public class PlayerControllerPP : MonoBehaviour
         {
             curNPC = collision.gameObject.GetComponent<NPCPP>();
         }
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)

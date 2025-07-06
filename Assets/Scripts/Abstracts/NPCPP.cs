@@ -10,13 +10,16 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private SpriteRenderer interactIcon;
     [SerializeField] private DialogueTextPP dialogueText;
     [SerializeField] private DialogueTextPP scannerText;
-    [SerializeField] private GameObject scannerLayer;
     [SerializeField] private DialogueControllerPP dialogueController;
     [SerializeField] private Animator animator;
     
     //Variable to keep track of a players location
-    public Transform playerTrans { get; private set; }
     private bool isBeingScanned = false;
+
+    //Variables controlling whether or not this object can be scanned or interacted with 
+    [SerializeField] private bool isInteractable = true;
+    [SerializeField] private bool isScannable = true;
+
 
 
     private const float FLASH_TIME = .5f;
@@ -45,23 +48,25 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         EventBusPP<ConversationStartEvent>.Deregister(conversationStartEvent);
         EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
     }
-
+    public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
+    {
+        if (isScannable)
+        {
+            animator.SetTrigger("ScanFlash");
+        }
+    }
 
 
     public abstract void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent);
 
     public abstract void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent);
 
-    public void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
-    {
-        animator.SetTrigger("ScanFlash");
-    }
+   
 
     private void Start()
     {
         dialogueController = FindFirstObjectByType<DialogueControllerPP>();
-        //Grab player location
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+ 
         if (!dialogueController)
         {
             dialogueController = Object.FindFirstObjectByType<DialogueControllerPP>();
@@ -78,11 +83,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Abstract method for scanning NPC
     public abstract void Scan();
 
-    public void TriggerInteract()
-    {
-        Interact();
-    }
-
     //Method to toggle the interact sprite
     public void InteractSpriteToggle(bool state)
     {
@@ -91,7 +91,8 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Scanner")
+
+        if (collision.gameObject.tag == "Scanner" && isScannable)
         {
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
@@ -100,7 +101,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             
 
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && isInteractable)
         {
             InteractSpriteToggle(true);
         }
@@ -109,14 +110,14 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Scanner")
+        if (collision.gameObject.tag == "Scanner" && isScannable)
         {
             Debug.Log("SCANNER SCANNER LEFT");
             isBeingScanned = false;
             animator.SetBool("BeingScanned", false);
             InteractSpriteToggle(false);
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && isInteractable)
         {
             
             InteractSpriteToggle(false);
@@ -124,6 +125,27 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     }
 
+
+
+    public bool GetIsScannable()
+    {
+        return isScannable;
+    }
+    public void SetIsScannable(bool newBool)
+    {
+        isScannable = newBool;
+    }
+
+    public bool GetIsInteractable()
+    {
+        return isInteractable;
+    }
+
+    public void SetIsInteractable(bool newBool)
+    {
+        isInteractable = newBool;
+    }
+   
 
     public DialogueTextPP GetDialogueText()
     {

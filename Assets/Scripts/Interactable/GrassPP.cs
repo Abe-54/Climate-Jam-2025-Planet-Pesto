@@ -12,6 +12,11 @@ public class GrassPP : InteractableObjectPP
         InteractSpriteToggle(false);
     }
 
+    public override void Interact()
+    {
+       
+    }
+
     //Code handeling what happens when she is scanned 
     public override void Scan()
     {

@@ -65,7 +65,7 @@ Material:
     - _ScanLineFrequency: 3
     - _ScanLineSpeed: 1.5
     m_Colors:
-    - _Base_Color: {r: 0.05564588, g: 0.3836477, b: 0.006032157, a: 1}
+    - _Base_Color: {r: 0.06457908, g: 0.46540874, b: 0.0073177004, a: 1}
     - _LineWidth_Height: {r: 0.05, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
