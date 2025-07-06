@@ -110,7 +110,14 @@ public class AudioManagerPP : MonoBehaviour
                 }
             default:
                 {
-                    curCharacter = Resources.Load<CharacterAudioInfoPP>("Dialogue/CharacterAudioInfo/" + speakerName);
+                    if (Resources.Load<CharacterAudioInfoPP>("Dialogue/CharacterAudioInfo/" + speakerName))
+                    {
+                        curCharacter = Resources.Load<CharacterAudioInfoPP>("Dialogue/CharacterAudioInfo/" + speakerName);
+                    }
+                    else
+                    {
+                        curCharacter = Resources.Load<CharacterAudioInfoPP>("Dialogue/CharacterAudioInfo/default");
+                    }
                     break;
                 }
         }

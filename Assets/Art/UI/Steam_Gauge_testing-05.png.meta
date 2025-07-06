@@ -186,7 +186,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Steam_Gauge_testing-05_0: 8429572999793514476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

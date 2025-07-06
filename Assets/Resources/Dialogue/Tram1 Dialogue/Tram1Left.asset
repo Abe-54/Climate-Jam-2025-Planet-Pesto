@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
+  m_Name: Tram1Left
+  m_EditorClassIdentifier: 
+  dialogueInstances:
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - '[A group factory workers sit exhausted from a day''s work]'
+  - speakerName: Factory Worker 1
+    pharagraphs:
+    - 'I feel like I just got out of a rain storm with all this sweat. '
+  - speakerName: Factory Worker 2
+    pharagraphs:
+    - "No kidding, speaking of rain though my petunia\u2019s need some. It feels
+      like it\u2019s been weeks since I\u2019ve seen a nice shower. "
+  - speakerName: Factory Worker 1
+    pharagraphs:
+    - "I know I can smell ya from here, and don\u2019t go blaming your lack of a
+      green thumb on the weather."
+  - speakerName: Factory Worker 2
+    pharagraphs:
+    - 'Oh I know I am not getting slack about thumbs from a man with only one. '
+  - speakerName: Factory Worker 1
+    pharagraphs:
+    - 'WE WANNA GO THERE THEN WELL... '
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - '[The two men continue to argue and reminisce about past thumb related incidents] '
+  isEvent: 1
+  eventName: TramLeft

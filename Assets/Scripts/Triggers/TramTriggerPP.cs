@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
-public class GameManagerPP : MonoBehaviour
+public class TrainTriggerPP : MonoBehaviour
 {
-
-
+    [SerializeField] private TimelineAsset triggeringCutscene;
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
-
-
+    private bool TramRight;
+    private bool TramLeft;
 
     private void OnEnable()
     {
@@ -27,41 +26,26 @@ public class GameManagerPP : MonoBehaviour
 
     public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        
+        if (conversationEndEvent.eventName == "TramRight")
+        {
+            TramRight = true;
+        }
+        if (conversationEndEvent.eventName == "TramLeft")
+        {
+            TramLeft = true;
+        }
+
+        if (TramLeft && TramRight)
+        {
+            EventBusPP<CutsceneTrigger>.Raise(new CutsceneTrigger
+            {
+                cutscene = triggeringCutscene
+            });
+        }
     }
 
     public void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
     {
 
     }
-
-
-    //To ensure singleton behavior
-    public static GameManagerPP instance;
-
-    private void Awake()
-    {
-        //Ensure that this is the only gamemanager in scene
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-
-    
 }
-
