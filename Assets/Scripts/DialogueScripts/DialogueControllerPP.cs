@@ -176,7 +176,6 @@ public class DialogueControllerPP : MonoBehaviour
 
     private void StartParagraph()
     {
-        Debug.Log("Loading in new paragraphs");
         //Queue them pharagraphs 
         for (int i = 0; i < curInstance.pharagraphs.Length; i++)
         {
@@ -233,7 +232,14 @@ public class DialogueControllerPP : MonoBehaviour
                 }
             default:
                 {
-                    characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                    if (Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName))
+                    {
+                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                    }
+                    else
+                    {
+                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/default");
+                    }
                     break;
                 }
         }

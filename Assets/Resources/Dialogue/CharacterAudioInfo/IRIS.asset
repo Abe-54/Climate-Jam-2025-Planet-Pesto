@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: I.R.I.S
   dialogueTypingSoundClips:
-  - {fileID: 8300000, guid: 220c95afee4f6bc4891148625cbf1f64, type: 3}
-  - {fileID: 8300000, guid: 8235b3ab00174a740b061b0936dee7f2, type: 3}
-  - {fileID: 8300000, guid: 4aaefac4ceef36344895e41c7bf06875, type: 3}
-  frequencyLevel: 3
+  - {fileID: 8300000, guid: 982d7f1f62175434884b1561faf6ff34, type: 3}
+  - {fileID: 8300000, guid: 33c977b6695310d42bf545138b466e46, type: 3}
+  frequencyLevel: 4
   minPitch: 0.5
   maxPitch: 1.23
   stopAudioSource: 0

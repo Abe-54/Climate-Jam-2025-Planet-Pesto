@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
+public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP,IIInteractablePP
 {
     //Sprite to indicate that something is interactable
     [SerializeField] private SpriteRenderer interactSprite;
@@ -9,6 +9,7 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
     [SerializeField] private DialogueControllerPP dialogueController;
     [SerializeField] private Animator animator;
 
+    private bool canBeInteracted;
     private bool isBeingScanned = false;
 
     private const float FLASH_TIME = .5f;
@@ -45,8 +46,11 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
         animator.SetTrigger("ScanFlash");
     }
 
-    //Abstract method for scanning NPC
+    //Abstract method for scanning object
     public abstract void Scan();
+
+    //Abstract method of interacting with object
+    public abstract void Interact();
 
     //Method to toggle the interact sprite
     public void InteractSpriteToggle(bool state)
@@ -78,6 +82,16 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
         }
     }
 
+    public bool GetCanBeInteracted()
+    {
+        return canBeInteracted;
+    }
+
+    public void SetCanBeInteracted(bool newBool)
+    {
+        canBeInteracted = newBool;
+    }
+
 
     public DialogueTextPP GetScannerText()
     {
@@ -102,4 +116,6 @@ public abstract class InteractableObjectPP : MonoBehaviour, IScanablePP
     {
         return this;
     }
+
+   
 }

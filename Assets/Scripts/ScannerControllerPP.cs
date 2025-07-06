@@ -50,11 +50,7 @@ public class ScannerControllerPP : MonoBehaviour
             curScanObj = collision.gameObject.GetComponent<NPCPP>();
         }
         
-        if (collision.gameObject.tag == "Interactable")
-        {
-            Debug.Log("Scanner Interactable Collision");
-            curScanObj = collision.gameObject.GetComponent<NPCPP>();
-        }
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -64,10 +60,6 @@ public class ScannerControllerPP : MonoBehaviour
             curScanObj = null;
         }
 
-        if (collision.gameObject.tag == "Interactable")
-        {
-            Debug.Log("Scanner Interactable Exit");
-            curScanObj = null;
-        }
+        
     }
 }

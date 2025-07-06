@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - DialogueCollider
   - Interactable
+  - Scannable
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,6 @@ public class AlenaPP : NPCPP, ITalkablePP
         {
             SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Lab1 Dialogue/AL2"));
         }
-
     }
 
     //Code handeling what happens when she is scanned 
@@ -38,17 +37,7 @@ public class AlenaPP : NPCPP, ITalkablePP
             Talk(GetDialogueText());
         }
     }
-    /*
-    //Upon the player pressing the interact key, if they are within range then initiate the interaction
-    public void OnInteract(InputAction.CallbackContext ctx)
-    {
-        print("Interact button pressed");
-        if (ctx.performed && IsWithinRange())
-        {
-            Interact();
-        }
-    }
-    */
+
 
     public void Talk(DialogueTextPP dialogueText)
     {
