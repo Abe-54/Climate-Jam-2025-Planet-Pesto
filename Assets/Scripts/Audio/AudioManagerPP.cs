@@ -10,6 +10,7 @@ public class AudioManagerPP : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource dialogueSource;
+    [SerializeField] private AudioSource cutsceneSFX;
 
     [SerializeField] private CharacterAudioInfoPP curCharacter;
     
@@ -50,6 +51,20 @@ public class AudioManagerPP : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
+    public void PlayCinamaticSFXClip(AudioClip audioClip, float volume)
+    {
+      
+
+        cutsceneSFX.clip = audioClip;
+
+        cutsceneSFX.volume = volume;
+
+        cutsceneSFX.Play();
+       
+    }
+
+
+
     public void PlayMusic(AudioClip audioClip)
     {
         if (musicSource.isPlaying)
@@ -68,10 +83,10 @@ public class AudioManagerPP : MonoBehaviour
             SwitchCurCharacter(speakerName); 
         }
 
-        //if (dialogueSource.isPlaying)
-        //{
-        //    dialogueSource.Stop();
-        //}
+        if (dialogueSource.isPlaying)
+        {
+           dialogueSource.Stop();
+        }
         //Ensure the audio is only played at the characters frequency level
         if (displayCount % curCharacter.frequencyLevel == 0)
         {
