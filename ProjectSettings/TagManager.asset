@@ -9,6 +9,7 @@ TagManager:
   - DialogueCollider
   - Interactable
   - Scannable
+  - SteamBar
   layers:
   - Default
   - TransparentFX

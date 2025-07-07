@@ -9,7 +9,7 @@ public class GameManagerPP : MonoBehaviour
 
 
 
-    private Vector3 playSpawnPos;
+    [SerializeField]private Vector3 playSpawnPos;
 
 
     private void OnEnable()
@@ -52,13 +52,17 @@ public class GameManagerPP : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (!FindAnyObjectByType<PlayerControllerPP>())
+        {
+            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos, Quaternion.identity);
+        }
     }
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-        
-        
+       
+
     }
 
     private void OnLevelWasLoaded(int level)
