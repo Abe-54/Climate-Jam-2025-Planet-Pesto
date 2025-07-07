@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class GameManagerPP : MonoBehaviour
 {
 
-
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
 
+
+
+    [SerializeField]private Vector3 playSpawnPos;
 
 
     private void OnEnable()
@@ -50,15 +52,35 @@ public class GameManagerPP : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (!FindAnyObjectByType<PlayerControllerPP>())
+        {
+            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos, Quaternion.identity);
+        }
     }
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+       
+
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (!FindAnyObjectByType<PlayerControllerPP>())
+        {
+            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos, Quaternion.identity);
+        }
+    }
+    
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void SetPlayerSpawn(Vector3 spawnPosition)
+    {
+        playSpawnPos = spawnPosition;
     }
 
 

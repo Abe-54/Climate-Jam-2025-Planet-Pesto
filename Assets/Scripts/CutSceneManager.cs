@@ -8,6 +8,7 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] private PlayableDirector playbackControls;
 
     EventBindingPP<CutsceneTrigger> cutsceneTriggerEvent;
+
     private void OnEnable()
     {
         cutsceneTriggerEvent = new EventBindingPP<CutsceneTrigger>(HandleCutsceneTriggerEvent);
@@ -26,6 +27,7 @@ public class CutSceneManager : MonoBehaviour
         playbackControls.Play(trigger.cutscene);
     }
 
+  
 
 
 }
