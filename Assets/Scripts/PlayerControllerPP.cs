@@ -76,8 +76,7 @@ public class PlayerControllerPP : MonoBehaviour
     public float LastPressedDashTime { get; private set; }
     //A value keeping track of the current npc that is interactable
     private NPCPP curNPC;
-    //A value keeping track of the current interactable object
-    private IIInteractablePP curInteractable;
+
 
 
     // Jump variables
@@ -546,6 +545,7 @@ public class PlayerControllerPP : MonoBehaviour
         if (!scanOn && ctx.performed && curNPC)
         {
             SetCanMove(false);
+            rb2d.linearVelocityX = 0;
             curNPC.Interact();
         }
     }
