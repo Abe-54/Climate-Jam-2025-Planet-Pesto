@@ -9,17 +9,33 @@ public class THEORBPP : NPCPP
 
     public override void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
     {
-      
+        InteractSpriteToggle(false);
     }
+
+
 
     public override void Interact()
     {
-        throw new System.NotImplementedException();
+        if (GetDialogueText())
+        {
+            Talk(GetDialogueText());
+        }
     }
+
+    public void Talk(DialogueTextPP dialogueText)
+    {
+        GetDialogueController().DisplayNextInstance(dialogueText);
+
+    }
+
+   
 
     public override void Scan()
     {
-        throw new System.NotImplementedException();
+        if (GetScannerText())
+        {
+            Talk(GetScannerText());
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
