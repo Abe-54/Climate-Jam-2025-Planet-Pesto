@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,27 @@ using UnityEngine.UI;
 //Singleton for controlling dialogue 
 public class DialogueControllerPP : MonoBehaviour
 {
+    
+    //Ensure singleton behavior
+    public static DialogueControllerPP instance;
+    private void Awake()
+    {
+        //Ensure that this is the only gamemanager in scene
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     //Fields to control the dialogue UI
     [SerializeField] TextMeshProUGUI speakerNameTextBox;
     [SerializeField] GameObject dialogueUI;
@@ -60,6 +82,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             if (!conEnded)
             {
+                EventBusPP<ConversationStartEvent>.Raise(new ConversationStartEvent{});
                 StartConvo(dialogueText);
             }
             else if (conEnded && !isTyping)
@@ -83,8 +106,6 @@ public class DialogueControllerPP : MonoBehaviour
             
         }
         DisplayNextPharagraph();
-
-
 
         if (dialogueInstances.Count == 0)
         {
@@ -155,7 +176,6 @@ public class DialogueControllerPP : MonoBehaviour
 
     private void StartParagraph()
     {
-        print("Loading in new paragraphs");
         //Queue them pharagraphs 
         for (int i = 0; i < curInstance.pharagraphs.Length; i++)
         {
@@ -178,6 +198,7 @@ public class DialogueControllerPP : MonoBehaviour
 
             maxVisibleChars++;
             dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
+            AudioManagerPP.instance.PlayDialogueNoise(curInstance.speakerName,maxVisibleChars);
 
             yield return new WaitForSeconds(MAX_TYPE_TIME / typeSpeed);
         }
@@ -193,7 +214,7 @@ public class DialogueControllerPP : MonoBehaviour
         //Finish displaying text
         dialogueTextBox.maxVisibleCharacters = curPharagraph.Length;
         dialogueTextBox.text = curPharagraph;
-        print(curPharagraph);
+       
 
         //Update isTyping
         isTyping = false;
@@ -211,7 +232,14 @@ public class DialogueControllerPP : MonoBehaviour
                 }
             default:
                 {
-                    characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                    if (Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName))
+                    {
+                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                    }
+                    else
+                    {
+                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/default");
+                    }
                     break;
                 }
         }
