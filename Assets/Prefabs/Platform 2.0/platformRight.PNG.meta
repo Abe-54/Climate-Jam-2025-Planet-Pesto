@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6079c6e18113cf145aaebd9c591934bc
+guid: 626b3b6c17365f24c8fd98e6d95150c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 966982427024947666
-    second: Trambackground_0
+      213: 7897964192544276538
+    second: IMG_2341_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trambackground_0
+      name: IMG_2341_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4215
-        height: 1080
+        x: 111
+        y: 322
+        width: 1124
+        height: 1072
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d9fdd2e4696b6d00800000000000000
-      internalID: 966982427024947666
+      spriteID: a304b5186943b9d60800000000000000
+      internalID: 7897964192544276538
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Trambackground_0: 966982427024947666
+      IMG_2341_0: 7897964192544276538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
