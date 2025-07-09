@@ -7,6 +7,7 @@ public class LabTriggerPP : TriggersAbstractPP
     [SerializeField] private TimelineAsset triggeringCutscene;
     [SerializeField] private TimelineAsset StartingCutscene;
     [SerializeField] private bool IntroCutscene;
+    [SerializeField] private bool infiniteDash;
     public override void Trigger()
     {
         EventBusPP<CutsceneTrigger>.Raise(new CutsceneTrigger
@@ -24,5 +25,10 @@ public class LabTriggerPP : TriggersAbstractPP
                 cutscene = StartingCutscene
             });
         }
+
+
+
+        FindAnyObjectByType<PlayerControllerPP>().SetInfiniteDash(infiniteDash);
+        
     }
 }

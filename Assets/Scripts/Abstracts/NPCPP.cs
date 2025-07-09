@@ -74,7 +74,11 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
         {
             animator = GetComponent<Animator>();
         }
+        StartUp();
     }
+
+    //Start up method abstractions
+    public abstract void StartUp();
 
     //Abstract method for interacting with NPC
     public abstract void Interact();
@@ -85,13 +89,14 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Method to toggle the interact sprite
     public void InteractSpriteToggle(bool state)
     {
+        
         if (state)
         {
-            Debug.Log(FindAnyObjectByType<PlayerInput>().currentControlScheme);
+           
             switch (FindAnyObjectByType<PlayerInput>().currentControlScheme)
             {
                 case "Keyboard&Mouse":
-                    Debug.Log("Got here");
+                  
                     interact = Instantiate(Resources.Load<GameObject>("Prefab/InteractableSpriteKeyboard"),this.transform, worldPositionStays: false);
                     break;
                 case "Gamepad":

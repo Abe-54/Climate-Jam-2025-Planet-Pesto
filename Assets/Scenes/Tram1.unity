@@ -995,7 +995,7 @@ Transform:
   m_GameObject: {fileID: 980124438}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -95.287224, y: -0.20638895, z: -10}
+  m_LocalPosition: {x: -95.266655, y: -0.20638895, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1020,7 +1020,7 @@ PrefabInstance:
       objectReference: {fileID: 1201314748}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -95.28723
+      value: -95.26666
       objectReference: {fileID: 0}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1750,8 +1750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f32046610752a4587a50771c859c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSprite: {fileID: 1345894720}
-  interactIcon: {fileID: 386350291}
   dialogueText: {fileID: 11400000, guid: 9a5859eff57682749b7df006aea5d114, type: 2}
   scannerText: {fileID: 0}
   dialogueController: {fileID: 0}
@@ -2564,8 +2562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f32046610752a4587a50771c859c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSprite: {fileID: 2326075379740793562}
-  interactIcon: {fileID: 3598005494827277399}
   dialogueText: {fileID: 11400000, guid: 6211bb195d01d1e438b6fa2a58d0e60b, type: 2}
   scannerText: {fileID: 0}
   dialogueController: {fileID: 0}
@@ -2591,9 +2587,9 @@ SceneRoots:
   - {fileID: 1552168845}
   - {fileID: 414198432254752269}
   - {fileID: 1534976419}
-  - {fileID: 492021949}
   - {fileID: 1669899099}
   - {fileID: 1317403440}
   - {fileID: 1297161184}
   - {fileID: 8896101}
   - {fileID: 1479966164}
+  - {fileID: 492021949}

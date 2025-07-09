@@ -898,6 +898,7 @@ MonoBehaviour:
   triggeringCutscene: {fileID: 11400000, guid: b87424ba031a8fa49aac9ec7d610a211, type: 2}
   StartingCutscene: {fileID: 11400000, guid: 9c445432a2c0c6d4a81311a9130ff522, type: 2}
   IntroCutscene: 0
+  infiniteDash: 0
 --- !u!4 &637061020
 Transform:
   m_ObjectHideFlags: 0
@@ -1971,11 +1972,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8256868756886355943, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8830310805219507628, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2135,6 +2136,18 @@ PrefabInstance:
     - target: {fileID: 4031392370045111264, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081992188377718229, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081992188377718229, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081992188377718229, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5720579704025933445, guid: 9f4f9a920c4451e4cae139c59f1fe3ee, type: 3}
       propertyPath: m_LocalPosition.x

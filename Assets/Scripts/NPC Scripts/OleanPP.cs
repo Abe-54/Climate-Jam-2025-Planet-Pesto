@@ -40,5 +40,9 @@ public class OleanPP : NPCPP, ITalkablePP
         GetDialogueController().DisplayNextInstance(dialogueText);
 
     }
-  
+
+    public override void StartUp()
+    {
+        
+    }
 }
