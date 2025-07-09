@@ -542,6 +542,7 @@ public class PlayerControllerPP : MonoBehaviour
     }
     public void OnInteract(InputAction.CallbackContext ctx)
     {
+        
         if (!scanOn && ctx.performed && curNPC)
         {
             SetCanMove(false);
