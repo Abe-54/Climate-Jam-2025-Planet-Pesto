@@ -101,6 +101,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             curInstance = dialogueInstances.Dequeue();
             SelectHeadImage();
+            SelectFont();
             speakerNameTextBox.text = curInstance.speakerName;
             pharagraphEnded = false;
             
@@ -165,6 +166,7 @@ public class DialogueControllerPP : MonoBehaviour
         curInstance = dialogueInstances.Dequeue();
         SelectHeadImage();
         speakerNameTextBox.text = curInstance.speakerName;
+        SelectFont();
 
     }
     private void EndConvo()
@@ -243,8 +245,32 @@ public class DialogueControllerPP : MonoBehaviour
                     break;
                 }
         }
+    }
 
+    private void SelectFont()
+    {
+        switch (curInstance.speakerName)
+        {
 
+            case "I.R.I.S":
+                {
+                    Debug.Log("got here");
+                    dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/IRIS");
+                    break;
+                }
+            default:
+                {
+                    if (Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName))
+                    {
+                        dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName);
+                    }
+                    else
+                    {
+                        dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/default");
+                    }
+                    break;
+                }
+        }
     }
     
 }

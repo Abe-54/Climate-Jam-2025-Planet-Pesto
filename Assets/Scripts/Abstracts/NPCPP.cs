@@ -190,10 +190,6 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     {
         return isBeingScanned;
     }
-    public SpriteRenderer GetInteractSprite()
-    {
-        return interactSprite;
-    }
 
     public NPCPP GetNPC()
     {
