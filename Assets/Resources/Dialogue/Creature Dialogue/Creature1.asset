@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
+  m_Name: Creature1
+  m_EditorClassIdentifier: 
+  dialogueInstances:
+  - speakerName: The Creature
+    pharagraphs:
+    - It has been a long while since I have been able to communicate with the little
+      ones. Who are you?
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - ...Hello,my name is I.R.I.S, I am a robot designed to learn through exploration.
+      Who or what are you?
+  - speakerName: The Creature
+    pharagraphs:
+    - 'I am many things from the infinite horizon to the dirt beneath your feet.
+      I am a house for many and a supposed home for a few. '
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - You are everything then...I suppose.
+  - speakerName: The Creature
+    pharagraphs:
+    - Not entirely, I am not you. I wander my path for it is what I am, you wonder
+      for a purpose it would seem.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - Correct, I have come to find the cause of fires in forests near my home. They
+      have been growing more and more frequent.
+  - speakerName: The Creature
+    pharagraphs:
+    - That seems difficult.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - Being everything, do you know what is causing them?
+  - speakerName: The Creature
+    pharagraphs:
+    - Yes
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - ...Could you explain it to me?
+  - speakerName: 'The Creature '
+    pharagraphs:
+    - I can, the smoke that comes from your machine houses. It rises into the air
+      and prevents heat from leaving my atmosphere.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - And the resulting increase in average temperature results in more fires.
+  - speakerName: The Creature
+    pharagraphs:
+    - Correct.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - Are you ok?
+  - speakerName: 'The Creature '
+    pharagraphs:
+    - I am fine.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - But if you are everything does it not hurt when forests burn?
+  - speakerName: 'The Creature '
+    pharagraphs:
+    - I was made in fire, my core is molten from condensed rock. I will continue
+      on even if every forest were to burn.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - 'Does that mean we will be ok as well?
+
+'
+  - speakerName: The Creature
+    pharagraphs:
+    - 'No, it means that I will continue to wonder on my path no matter if your species
+      burns itself out with its own smoke or not. '
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - I understand, I need to get this back to Alina as soon as I can.
+  - speakerName: The Creature
+    pharagraphs:
+    - Be wary, you are not infinite. If you stay in the grove you used to come here
+      I dont believe harm should come to you.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - But if I stay the forests will burn more
+  - speakerName: The Creature
+    pharagraphs:
+    - A tough choice, but a choice nonetheless.
+  isEvent: 1
+  eventName: 'Creature1 '

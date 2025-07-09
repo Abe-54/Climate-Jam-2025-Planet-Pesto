@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trambackground_0: 966982427024947666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
