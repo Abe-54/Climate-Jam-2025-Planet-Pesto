@@ -67,12 +67,15 @@ public class AudioManagerPP : MonoBehaviour
 
     public void PlayMusic(AudioClip audioClip)
     {
-        if (musicSource.isPlaying)
+
+        if (audioClip)
         {
-            StopMusic();
+            musicSource.volume = 1;
+            musicSource.clip = audioClip;
+            Debug.Log(audioClip.ToString());
+            musicSource.loop = true;
+            musicSource.Play();
         }
-        musicSource.clip = audioClip;
-        musicSource.Play();
     }
 
     public void PlayDialogueNoise(string speakerName, float displayCount)
