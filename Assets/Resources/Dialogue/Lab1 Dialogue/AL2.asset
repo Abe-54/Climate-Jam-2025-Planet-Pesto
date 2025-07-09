@@ -50,5 +50,8 @@ MonoBehaviour:
     pharagraphs:
     - "It really would, but be careful now that steam chamber you run on takes a
       long while to fill up again. Don\u2019t go using up too much of it. "
+    - 'The door to leave should be right next to Olean
+
+'
   isEvent: 1
   eventName: AL2

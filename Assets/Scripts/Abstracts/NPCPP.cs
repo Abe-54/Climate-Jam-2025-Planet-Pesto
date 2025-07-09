@@ -6,12 +6,11 @@ using UnityEngine.InputSystem;
 public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 {
     //Sprite to indicate that something is interactable
-    [SerializeField] private SpriteRenderer interactSprite;
-    [SerializeField] private SpriteRenderer interactIcon;
     [SerializeField] private DialogueTextPP dialogueText;
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private DialogueControllerPP dialogueController;
     [SerializeField] private Animator animator;
+    private GameObject interact;
     
     //Variable to keep track of a players location
     private bool isBeingScanned = false;
@@ -86,7 +85,27 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     //Method to toggle the interact sprite
     public void InteractSpriteToggle(bool state)
     {
-        interactSprite.gameObject.SetActive(state);
+        if (state)
+        {
+            Debug.Log(FindAnyObjectByType<PlayerInput>().currentControlScheme);
+            switch (FindAnyObjectByType<PlayerInput>().currentControlScheme)
+            {
+                case "Keyboard&Mouse":
+                    Debug.Log("Got here");
+                    interact = Instantiate(Resources.Load<GameObject>("Prefab/InteractableSpriteKeyboard"),this.transform, worldPositionStays: false);
+                    break;
+                case "Gamepad":
+                    interact = Instantiate(Resources.Load<GameObject>("Prefab/InteractableSpriteController"), this.transform, worldPositionStays: false);
+                    break;
+            }
+
+            
+        }
+        else if(!state && interact)
+        {
+            Destroy(interact);
+            interact = null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class RestExit : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private string sceneName;
+    [SerializeField] private Vector3 playSpawnPos;
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Player")
+        {
+            GameManagerPP.instance.SetPlayerSpawn(playSpawnPos);
+            GameManagerPP.instance.ChangeScene(sceneName);
+            GameManagerPP.instance.SetIntensityLevel(2);
+        }
     }
 }
