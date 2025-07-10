@@ -13,7 +13,7 @@ using UnityEngine.UI;
 //Singleton for controlling dialogue 
 public class DialogueControllerPP : MonoBehaviour
 {
-    
+
     //Ensure singleton behavior
     public static DialogueControllerPP instance;
     private void Awake()
@@ -32,6 +32,7 @@ public class DialogueControllerPP : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+
     }
 
     //Fields to control the dialogue UI
@@ -55,7 +56,7 @@ public class DialogueControllerPP : MonoBehaviour
 
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
-    
+
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
 
     private void OnEnable()
@@ -71,9 +72,9 @@ public class DialogueControllerPP : MonoBehaviour
 
     void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-      
+
     }
-    
+
     //Initiate next pharagraph or speaker or end convo 
     public void DisplayNextInstance(DialogueTextPP dialogueText)
     {
@@ -82,7 +83,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             if (!conEnded)
             {
-                EventBusPP<ConversationStartEvent>.Raise(new ConversationStartEvent{});
+                EventBusPP<ConversationStartEvent>.Raise(new ConversationStartEvent { });
                 StartConvo(dialogueText);
             }
             else if (conEnded && !isTyping)
@@ -104,7 +105,7 @@ public class DialogueControllerPP : MonoBehaviour
             SelectFont();
             speakerNameTextBox.text = curInstance.speakerName;
             pharagraphEnded = false;
-            
+
         }
         DisplayNextPharagraph();
 
@@ -112,7 +113,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             conEnded = true;
         }
-        
+
     }
 
     //Display the next pharagraph 
@@ -132,7 +133,7 @@ public class DialogueControllerPP : MonoBehaviour
             }
         }
 
-        if (!isTyping )
+        if (!isTyping)
         {
             curPharagraph = pharagraphs.Dequeue();
             typeDialogueCoroutine = StartCoroutine(TypeDialogueText(curPharagraph));
@@ -142,21 +143,24 @@ public class DialogueControllerPP : MonoBehaviour
             FinishPharagraphEarly();
         }
 
-  
+
         if (pharagraphs.Count == 0)
         {
             pharagraphEnded = true;
         }
-        
+
     }
 
     private void StartConvo(DialogueTextPP dialogueText)
     {
-        //Turn on 
-        if (!dialogueUI.activeSelf)
+        if (!dialogueTextBox)
         {
-            dialogueUI.SetActive(true);    
+            dialogueTextBox = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
         }
+        
+        
+        dialogueUI.SetActive(true);    
+        
 
         //Queue them instances 
         for (int i = 0; i < dialogueText.dialogueInstances.Length; i++)

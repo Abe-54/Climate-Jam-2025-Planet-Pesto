@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TramNPC : NPCPP, ITalkablePP
 {
+    [SerializeField] private DialogueTextPP returnTripDialogue;
     public override void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
  
