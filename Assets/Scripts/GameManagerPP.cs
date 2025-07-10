@@ -13,7 +13,7 @@ public class GameManagerPP : MonoBehaviour
     private float intensityLevel = 1;
 
 
-    [SerializeField]private Vector3 playSpawnPos;
+    [SerializeField]private GameObject playSpawnPos;
 
 
     private void OnEnable()
@@ -59,9 +59,11 @@ public class GameManagerPP : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (!FindAnyObjectByType<PlayerControllerPP>() && SceneManager.GetActiveScene().name != "Title Screen")
+        if (!FindAnyObjectByType<PlayerControllerPP>() && playSpawnPos && SceneManager.GetActiveScene().name != "Title Screen")
         {
-            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos, Quaternion.identity);
+
+            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos.transform.position, Quaternion.identity);
+
         }
     }
 
@@ -73,10 +75,13 @@ public class GameManagerPP : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if (!FindAnyObjectByType<PlayerControllerPP>())
+        if (!FindAnyObjectByType<PlayerControllerPP>()  && playSpawnPos)
         {
-            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos, Quaternion.identity);
+            
+             Instantiate(Resources.Load("Prefab/Player"), playSpawnPos.transform.position, Quaternion.identity);
+            
         }
+
     }
     
     public void ChangeScene(string sceneName)
@@ -84,7 +89,7 @@ public class GameManagerPP : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void SetPlayerSpawn(Vector3 spawnPosition)
+    public void SetPlayerSpawn(GameObject spawnPosition)
     {
         playSpawnPos = spawnPosition;
     }

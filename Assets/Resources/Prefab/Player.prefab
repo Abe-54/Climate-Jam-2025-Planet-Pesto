@@ -549,6 +549,7 @@ MonoBehaviour:
   maxSteam: 100
   currentSteam: 0
   steam: {fileID: 0}
+  reductionSpeed: 1
 --- !u!114 &5702480158243822959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,9 +574,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  groundCheckRadius: 0.4
+  groundCheckRadius: 0.76
   isGrounded: 0
-  jumpForce: 15
+  jumpForce: 25
   jumpCutGravityMult: 2
   fallGravityMult: 1.5
   coyoteTime: 0.1
@@ -588,6 +589,7 @@ MonoBehaviour:
   wallJumpRunLerp: 0.05
   slideSpeed: -5
   slideAccel: 5
+  infiniteDash: 0
   dashSteamUsageAmt: 10
   dashAmount: 1
   dashSpeed: 20

@@ -3,7 +3,7 @@ using UnityEngine;
 public class RestExit : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    [SerializeField] private Vector3 playSpawnPos;
+    [SerializeField] private GameObject playSpawnPos;
 
 
     private void OnTriggerEnter2D(Collider2D collision)

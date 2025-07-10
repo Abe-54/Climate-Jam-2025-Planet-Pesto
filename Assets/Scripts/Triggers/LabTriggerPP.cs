@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
 public class LabTriggerPP : TriggersAbstractPP
@@ -8,6 +9,7 @@ public class LabTriggerPP : TriggersAbstractPP
     [SerializeField] private TimelineAsset StartingCutscene;
     [SerializeField] private bool IntroCutscene;
     [SerializeField] private bool infiniteDash;
+    [SerializeField] private AudioClip labMusic;
     public override void Trigger()
     {
         EventBusPP<CutsceneTrigger>.Raise(new CutsceneTrigger
@@ -25,9 +27,10 @@ public class LabTriggerPP : TriggersAbstractPP
                 cutscene = StartingCutscene
             });
         }
-
-
-
+        if(SceneManager.GetActiveScene().name == "Lab2")
+        {
+            AudioManagerPP.instance.PlayMusic(labMusic);
+        }
         FindAnyObjectByType<PlayerControllerPP>().SetInfiniteDash(infiniteDash);
         
     }

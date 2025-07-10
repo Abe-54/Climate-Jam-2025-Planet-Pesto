@@ -72,8 +72,8 @@ MonoBehaviour:
     - "Alright it\u2019s the suns gone to bed and so should we."
   - speakerName: I.R.I.S
     pharagraphs:
-    - Oh I also believe the planet might be living dinosaurs.
-  - speakerName: I.R.I.S
+    - Oh I also believe the planet might be a living dinosaurs.
+  - speakerName: Alina
     pharagraphs:
     - WHAT?!?
   isEvent: 1

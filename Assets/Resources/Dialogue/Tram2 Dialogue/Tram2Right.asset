@@ -12,6 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
   m_Name: Tram2Right
   m_EditorClassIdentifier: 
-  dialogueInstances: []
-  isEvent: 0
-  eventName: 
+  dialogueInstances:
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - '[A young boy is profusely coughing into a handkerchief held by a worried looking
+      woman. A nervous man is pacing back and forth in front of them.]
+
+'
+  - speakerName: Woman
+    pharagraphs:
+    - Hang in there baby everythings gonna be ok, we're gonna get to the doctor and
+      everythings gonna be ok.
+  - speakerName: Man
+    pharagraphs:
+    - That fire came from nowhere, probably some idiot forgot to put out his campsite
+      and sparked it.
+  - speakerName: Woman
+    pharagraphs:
+    - "Well that\u2019s the last time we go anywhere near those woods, I told those
+      fires were gonna be trouble."
+  - speakerName: 'Young Boy '
+    pharagraphs:
+    - "*Cough* *Cough* Does that mean *Cough* I can\u2019t see the birds anymore."
+  - speakerName: Man
+    pharagraphs:
+    - "No. . .no I don\u2019t think we're gonna be seeing any birds for a long while."
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - '[The young boy continues to cough heavily and lays down on his mothers lap.
+      The father sits down and begins to gently stroke the young boys back]'
+  isEvent: 1
+  eventName: TramRight

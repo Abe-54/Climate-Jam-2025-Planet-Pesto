@@ -5,21 +5,12 @@ public class ExitPP : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
-    [SerializeField] private Vector3 playSpawnPos;
+    [SerializeField] private GameObject playSpawnPos;
 
     private void Start()
     {
         
-        if (GameManagerPP.instance.GetCreatureFlag())
-        {
-            sceneName = "Lab2";
-            playSpawnPos = new Vector3(-50, -5, 0);
-        }
-        else
-        {
-            sceneName = "Creature";
-            playSpawnPos = new Vector3(0, 0, 0);
-        }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,5 +20,14 @@ public class ExitPP : MonoBehaviour
             GameManagerPP.instance.SetPlayerSpawn(playSpawnPos);
             GameManagerPP.instance.ChangeScene(sceneName);  
         }
+    }
+
+    public void SetSceneName(string newSceneName)
+    {
+        sceneName = newSceneName;
+    }
+    public void SetSpawn(GameObject newSpawnPos)
+    {
+        playSpawnPos = newSpawnPos;
     }
 }

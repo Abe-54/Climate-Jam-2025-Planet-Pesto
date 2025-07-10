@@ -70,6 +70,10 @@ public class AudioManagerPP : MonoBehaviour
 
         if (audioClip)
         {
+            if (musicSource.isPlaying)
+            {
+                musicSource.Stop();
+            }
             musicSource.volume = 1;
             musicSource.clip = audioClip;
             Debug.Log(audioClip.ToString());
