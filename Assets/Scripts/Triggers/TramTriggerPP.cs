@@ -5,6 +5,8 @@ public class TrainTriggerPP : MonoBehaviour
 {
     [SerializeField] private TimelineAsset triggeringCutscene;
     [SerializeField] private AudioClip tramMusic;
+    [SerializeField] private ExitPP exit;
+    [SerializeField] private GameObject labSpawn;
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
     private bool TramRight;
@@ -27,6 +29,11 @@ public class TrainTriggerPP : MonoBehaviour
 
     private void Start()
     {
+        if (GameManagerPP.instance.GetCreatureFlag())
+        {
+            exit.SetSceneName("Lab2");
+            exit.SetSpawn(labSpawn);
+        }
         AudioManagerPP.instance.PlayMusic(tramMusic);
     }
 

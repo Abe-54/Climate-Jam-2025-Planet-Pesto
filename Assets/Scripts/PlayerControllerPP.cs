@@ -130,6 +130,7 @@ public class PlayerControllerPP : MonoBehaviour
     public void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
     {
         SetCanMove(false);
+     
     }
 
     public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
@@ -149,8 +150,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void Update()
     {
-      
-
+     
         UpdateTimers();
         CheckCollisions();
         HandleJumpLogic();

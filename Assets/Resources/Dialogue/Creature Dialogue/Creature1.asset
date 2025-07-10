@@ -94,4 +94,4 @@ MonoBehaviour:
     pharagraphs:
     - A tough choice, but a choice nonetheless.
   isEvent: 1
-  eventName: 'Creature1 '
+  eventName: Creature1

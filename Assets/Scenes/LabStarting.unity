@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Tram1
-  playSpawnPos: {x: -98, y: -8, z: 0}
+  playSpawnPos: {fileID: 7545279168296798889, guid: 1661a0c96e599894988fca58176909fc, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -106.504326, y: -0.3358345, z: -10}
+  m_LocalPosition: {x: -102.40705, y: -0.3358345, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -846,7 +846,7 @@ MonoBehaviour:
   triggeringCutscene: {fileID: 11400000, guid: b87424ba031a8fa49aac9ec7d610a211, type: 2}
   StartingCutscene: {fileID: 11400000, guid: 9c445432a2c0c6d4a81311a9130ff522, type: 2}
   IntroCutscene: 1
-  infiniteDash: 0
+  infiniteDash: 1
 --- !u!4 &637061020
 Transform:
   m_ObjectHideFlags: 0
@@ -935,6 +935,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bcf6d155b9ec4c6d9ea2c3ff1764501, type: 3}
+--- !u!114 &660565839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5962902100710984852, guid: c1cc3a60adfebae4b8d3c08fddf86e52, type: 3}
+  m_PrefabInstance: {fileID: 457715405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2423c04b3e715864fb71038783202757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &780136764 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 152920796064176356, guid: b79e2c25fe3890f43b3d62b404d92ba3, type: 3}
@@ -1484,7 +1495,7 @@ PrefabInstance:
       objectReference: {fileID: 1436262220}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -108.544044
+      value: -107.314865
       objectReference: {fileID: 0}
     - target: {fileID: 7166264898034683809, guid: 897975dd0a5284b608f5bed2cf04efa1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1577,6 +1588,38 @@ PrefabInstance:
     - target: {fileID: 2253092868944949219, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
       propertyPath: m_Name
       value: Main UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_fontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_margin.x
+      value: -10.389313
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f8510f96107cd2c4da6b7f075fafdb71, type: 2}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3442467400711929568, guid: f8510f96107cd2c4da6b7f075fafdb71, type: 2}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188143796266648473, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5490650197350078170, guid: a56fcf35a22ccd0428acdeaf827967cb, type: 3}
       propertyPath: m_Pivot.x
@@ -1993,7 +2036,7 @@ PrefabInstance:
     - target: {fileID: 5753075176011158358, guid: 7c75f3c4d063f564d88ac4320d5533f8, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 660565839}
     - target: {fileID: 5753075176011158358, guid: 7c75f3c4d063f564d88ac4320d5533f8, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

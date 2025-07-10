@@ -12,6 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
   m_Name: Tram2Left
   m_EditorClassIdentifier: 
-  dialogueInstances: []
-  isEvent: 0
-  eventName: 
+  dialogueInstances:
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - '[A group of exhausted looking farmers sit around, all of them have soot covering
+      their bodies]
+
+'
+  - speakerName: Farmer 1
+    pharagraphs:
+    - "Well let\u2019s hope they got the right tools in the city."
+  - speakerName: Farmer 2
+    pharagraphs:
+    - "I'm just thankful that tools are all that really needs replacing. We\u2019re
+      lucky the dogs picked up on the smoke when they"
+  - speakerName: Farmer 3
+    pharagraphs:
+    - 'Is it bad that I can still see it?
+
+'
+  - speakerName: Farmer 2
+    pharagraphs:
+    - See what?
+  - speakerName: Farmer 3
+    pharagraphs:
+    - "The fire, everytime I close my eyes it\u2019s still there, if we had been
+      any slower I would\u2019ve been..."
+  - speakerName: Farmer 2
+    pharagraphs:
+    - "It didn\u2019t and you're alive. This wasn\u2019t normal meaning it was probably
+      a fluke, I doubt it\u2019ll happen again."
+  - speakerName: Farmer 3
+    pharagraphs:
+    - "You\u2019re probably right, a fluke, just a fluke. I think I might start using
+      fewer candles though, just in case."
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - '[The third farmer falls silent while the other two have already moved on and
+      begin going over what needed to get bought] '
+  isEvent: 1
+  eventName: TramLeft

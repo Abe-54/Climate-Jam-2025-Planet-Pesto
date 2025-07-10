@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TramNPC : NPCPP, ITalkablePP
 {
-    [SerializeField] private DialogueTextPP returnTripDialogue;
+    [SerializeField] private bool rightNPC;
     public override void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
  
@@ -28,8 +28,17 @@ public class TramNPC : NPCPP, ITalkablePP
 
     public override void StartUp()
     {
-
-        
+        if (GameManagerPP.instance.GetCreatureFlag())
+        {
+            if (rightNPC)
+            {
+                SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Tram2 Dialogue/Tram2Right"));
+            }
+            else
+            {
+                SetDialogueText(Resources.Load<DialogueTextPP>("Dialogue/Tram2 Dialogue/Tram2Left"));
+            }
+        }
     }
 
     public void Talk(DialogueTextPP dialogueText)

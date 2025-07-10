@@ -5,7 +5,7 @@ public class LabExitPP : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
-    [SerializeField] private Vector3 playSpawnPos;
+    [SerializeField] private GameObject playSpawnPos;
 
     private void Start()
     {
