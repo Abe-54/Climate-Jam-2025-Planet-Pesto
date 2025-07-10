@@ -47,6 +47,11 @@ public class DoorPP : NPCPP
         }
     }
 
+    public override void StartUp()
+    {
+        
+    }
+
     public void Talk(DialogueTextPP dialogueText)
     {
         GetDialogueController().DisplayNextInstance(dialogueText);

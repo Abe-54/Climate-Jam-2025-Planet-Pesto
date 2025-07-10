@@ -1,5 +1,6 @@
 
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,7 +40,8 @@ public class PlayerControllerPP : MonoBehaviour
     public float slideSpeed = -5f;
     public float slideAccel = 5f;
 
-    [Header("Dash Settings")] 
+    [Header("Dash Settings")]
+    [SerializeField] private bool infiniteDash;
     public int dashSteamUsageAmt = 10;
     public int dashAmount = 1;
     public float dashSpeed = 20f;
@@ -100,6 +102,7 @@ public class PlayerControllerPP : MonoBehaviour
     //Events
     EventBindingPP<ScannerOnEvent> scannerOnEvent;
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
+    EventBindingPP<ConversationStartEvent> conversationStartEvent;
 
     private void OnEnable()
     {
@@ -108,16 +111,25 @@ public class PlayerControllerPP : MonoBehaviour
 
         scannerOnEvent = new EventBindingPP<ScannerOnEvent>(HandleScannerOnEvent);
         EventBusPP<ScannerOnEvent>.Register(scannerOnEvent);
+
+        conversationStartEvent = new EventBindingPP<ConversationStartEvent>(HandleConversationStartEvent);
+        EventBusPP<ConversationStartEvent>.Register(conversationStartEvent);
+
     }
 
     private void OnDisable()
     {
         EventBusPP<ScannerOnEvent>.Deregister(scannerOnEvent);
         EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
+        EventBusPP<ConversationStartEvent>.Deregister(conversationStartEvent);
     }
     void HandleScannerOnEvent(ScannerOnEvent scannerOnEvent)
     {
        
+    }
+    public void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
+    {
+        SetCanMove(true);
     }
 
     public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
@@ -137,7 +149,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void Update()
     {
-        if (!canPlayerMove) return;
+      
 
         UpdateTimers();
         CheckCollisions();
@@ -150,7 +162,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!canPlayerMove) return;
+        
 
         if (!IsDashing)
         {
@@ -267,9 +279,12 @@ public class PlayerControllerPP : MonoBehaviour
             IsJumping = false;
             IsWallJumping = false;
             _isJumpCut = false;
-            
+
             // REMOVING STEAM HERE
-            steamController.RemoveSteam(dashSteamUsageAmt);
+            if (!infiniteDash)
+            {
+                steamController.RemoveSteam(dashSteamUsageAmt);
+            }
             
             // STARTING THE DASH HERE
             StartCoroutine(StartDash(_lastDashDir));
@@ -417,7 +432,10 @@ public class PlayerControllerPP : MonoBehaviour
         LastOnGroundTime = 0;
         LastPressedDashTime = 0;
         float startTime = Time.time;
-        _dashesLeft--;
+        if (!infiniteDash)
+        {
+            _dashesLeft--;
+        }
         _isDashAttacking = true;
         rb2d.gravityScale = 0;
     
@@ -465,7 +483,11 @@ public class PlayerControllerPP : MonoBehaviour
     // Input Methods
     public void OnMove(InputAction.CallbackContext ctx)
     {
-        moveInput = ctx.ReadValue<Vector2>();
+        if (canPlayerMove)
+        {
+
+            moveInput = ctx.ReadValue<Vector2>();
+        }
     }
 
     public void OnJump(InputAction.CallbackContext ctx)
@@ -545,7 +567,7 @@ public class PlayerControllerPP : MonoBehaviour
         
         if (!scanOn && ctx.performed && curNPC)
         {
-            SetCanMove(false);
+            
             rb2d.linearVelocityX = 0;
             curNPC.Interact();
         }
@@ -591,4 +613,11 @@ public class PlayerControllerPP : MonoBehaviour
             }
         }
 
+    public void SetInfiniteDash(bool newBool)
+    {
+        infiniteDash = newBool;
     }
+
+    }
+
+     

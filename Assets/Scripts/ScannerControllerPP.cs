@@ -14,7 +14,6 @@ public class ScannerControllerPP : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        
     }
 
     //Method for controlling movement

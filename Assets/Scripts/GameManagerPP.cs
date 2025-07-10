@@ -1,4 +1,6 @@
+using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManagerPP : MonoBehaviour
@@ -7,6 +9,8 @@ public class GameManagerPP : MonoBehaviour
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
 
+    private bool creatureFlag;
+    private float intensityLevel = 1;
 
 
     [SerializeField]private Vector3 playSpawnPos;
@@ -29,7 +33,10 @@ public class GameManagerPP : MonoBehaviour
 
     public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-        
+        if(conversationEndEvent.eventName == "Creature1")
+        {
+            SetCreatureFlag(true);
+        }
     }
 
     public void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
@@ -61,7 +68,6 @@ public class GameManagerPP : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-       
 
     }
 
@@ -83,6 +89,24 @@ public class GameManagerPP : MonoBehaviour
         playSpawnPos = spawnPosition;
     }
 
+    public bool GetCreatureFlag()
+    {
+        return creatureFlag;
+    }
+    public void SetCreatureFlag(bool newBool)
+    {
+        creatureFlag = newBool; 
+    }
+
+    public float GetIntensityLevel()
+    {
+        return intensityLevel;
+    }
+
+    public void SetIntensityLevel(float newIntensityLevel)
+    {
+        intensityLevel = newIntensityLevel;
+    }
 
     
 }
