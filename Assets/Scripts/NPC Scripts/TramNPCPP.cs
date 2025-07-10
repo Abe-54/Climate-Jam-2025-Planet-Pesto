@@ -25,6 +25,11 @@ public class TramNPC : NPCPP, ITalkablePP
       
     }
 
+    public override void StartUp()
+    {
+        
+    }
+
     public void Talk(DialogueTextPP dialogueText)
     {
         GetDialogueController().DisplayNextInstance(dialogueText);

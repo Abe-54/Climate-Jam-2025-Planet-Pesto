@@ -27,7 +27,4 @@ public class CutSceneManager : MonoBehaviour
         playbackControls.Play(trigger.cutscene);
     }
 
-  
-
-
 }

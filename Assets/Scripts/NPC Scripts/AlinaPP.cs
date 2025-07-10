@@ -49,5 +49,10 @@ public class AlenaPP : NPCPP, ITalkablePP
     {
         InteractSpriteToggle(false);
     }
+
+    public override void StartUp()
+    {
+        
+    }
 }
 
