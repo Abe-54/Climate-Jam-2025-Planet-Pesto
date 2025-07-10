@@ -65,12 +65,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private void Start()
     {
-        dialogueController = FindFirstObjectByType<DialogueControllerPP>();
- 
-        if (!dialogueController)
-        {
-            dialogueController = Object.FindFirstObjectByType<DialogueControllerPP>();
-        }
+        dialogueController = DialogueControllerPP.instance;
         if (!animator)
         {
             animator = GetComponent<Animator>();
@@ -196,7 +191,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     public DialogueControllerPP GetDialogueController()
     {
-        return dialogueController;
+        return DialogueControllerPP.instance;
     }
 
     public bool GetIsBeingScanned()

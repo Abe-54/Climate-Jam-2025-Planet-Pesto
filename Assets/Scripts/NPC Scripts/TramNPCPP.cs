@@ -28,6 +28,7 @@ public class TramNPC : NPCPP, ITalkablePP
 
     public override void StartUp()
     {
+
         
     }
 

@@ -18,28 +18,28 @@ public class DialogueControllerPP : MonoBehaviour
     public static DialogueControllerPP instance;
     private void Awake()
     {
-        //Ensure that this is the only gamemanager in scene
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
+       
     }
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        //Ensure that this is the only gamemanager in scene
+        if (instance == null)
+        {
+            instance = this;
+            dialogueUIElems = FindAnyObjectByType<MainUIPP>().GetDialogueElements();
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+           Destroy(this.gameObject);
+        }
+        
 
     }
 
     //Fields to control the dialogue UI
-    [SerializeField] TextMeshProUGUI speakerNameTextBox;
-    [SerializeField] GameObject dialogueUI;
-    [SerializeField] TextMeshProUGUI dialogueTextBox;
-    [SerializeField] Image characterHead;
+    [SerializeField] UIElements dialogueUIElems;
     [SerializeField] private float typeSpeed = 300;
     //Tracking whether or not the conversation has ended 
     private bool conEnded = false;
@@ -103,7 +103,7 @@ public class DialogueControllerPP : MonoBehaviour
             curInstance = dialogueInstances.Dequeue();
             SelectHeadImage();
             SelectFont();
-            speakerNameTextBox.text = curInstance.speakerName;
+            dialogueUIElems.speakerNameTextBox.text = curInstance.speakerName;
             pharagraphEnded = false;
 
         }
@@ -151,15 +151,18 @@ public class DialogueControllerPP : MonoBehaviour
 
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        dialogueUIElems = FindAnyObjectByType<MainUIPP>().GetDialogueElements();
+    }
     private void StartConvo(DialogueTextPP dialogueText)
     {
-        if (!dialogueTextBox)
-        {
-            dialogueTextBox = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<TextMeshProUGUI>();
-        }
+
+       
+
+        dialogueUIElems.dialogueUI.SetActive(true);
         
         
-        dialogueUI.SetActive(true);    
         
 
         //Queue them instances 
@@ -169,7 +172,7 @@ public class DialogueControllerPP : MonoBehaviour
         }
         curInstance = dialogueInstances.Dequeue();
         SelectHeadImage();
-        speakerNameTextBox.text = curInstance.speakerName;
+        dialogueUIElems.speakerNameTextBox.text = curInstance.speakerName;
         SelectFont();
 
     }
@@ -177,7 +180,7 @@ public class DialogueControllerPP : MonoBehaviour
     {
         pharagraphEnded = false;
         conEnded = false;
-        dialogueUI.SetActive(false);
+        dialogueUIElems.dialogueUI.SetActive(false);
     }
 
     private void StartParagraph()
@@ -196,14 +199,14 @@ public class DialogueControllerPP : MonoBehaviour
 
         int maxVisibleChars = 0;
 
-        dialogueTextBox.text = p;
-        dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
+        dialogueUIElems.dialogueTextBox.text = p;
+        dialogueUIElems.dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
 
         foreach (char c in p.ToCharArray())
         {
 
             maxVisibleChars++;
-            dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
+            dialogueUIElems.dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
             AudioManagerPP.instance.PlayDialogueNoise(curInstance.speakerName,maxVisibleChars);
 
             yield return new WaitForSeconds(MAX_TYPE_TIME / typeSpeed);
@@ -218,8 +221,8 @@ public class DialogueControllerPP : MonoBehaviour
         StopCoroutine(typeDialogueCoroutine);
 
         //Finish displaying text
-        dialogueTextBox.maxVisibleCharacters = curPharagraph.Length;
-        dialogueTextBox.text = curPharagraph;
+        dialogueUIElems.dialogueTextBox.maxVisibleCharacters = curPharagraph.Length;
+        dialogueUIElems.dialogueTextBox.text = curPharagraph;
        
 
         //Update isTyping
@@ -233,18 +236,18 @@ public class DialogueControllerPP : MonoBehaviour
         {
             case "I.R.I.S":
                 {
-                    characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/IRIS");
+                    dialogueUIElems.characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/IRIS");
                     break;
                 }
             default:
                 {
                     if (Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName))
                     {
-                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                        dialogueUIElems.characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
                     }
                     else
                     {
-                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/default");
+                        dialogueUIElems.characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/default");
                     }
                     break;
                 }
@@ -259,18 +262,18 @@ public class DialogueControllerPP : MonoBehaviour
             case "I.R.I.S":
                 {
                     Debug.Log("got here");
-                    dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/IRIS");
+                    dialogueUIElems.dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/IRIS");
                     break;
                 }
             default:
                 {
                     if (Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName))
                     {
-                        dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName);
+                        dialogueUIElems.dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName);
                     }
                     else
                     {
-                        dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/default");
+                        dialogueUIElems.dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/default");
                     }
                     break;
                 }

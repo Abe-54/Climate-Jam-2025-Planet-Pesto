@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4451221829861443591}
   - component: {fileID: 7537385041677417485}
   - component: {fileID: 3027625134307833715}
-  - component: {fileID: 382804197155306644}
+  - component: {fileID: 796678809010164519}
   m_Layer: 5
   m_Name: Main UI
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &382804197155306644
+--- !u!114 &796678809010164519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,14 +114,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2253092868944949219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2423c04b3e715864fb71038783202757, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a9b6e696d9f1a54eac1ddf4025a8b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakerNameTextBox: {fileID: 3188143796266648473}
-  dialogueUI: {fileID: 8830310805219507628}
-  dialogueTextBox: {fileID: 7776466842179050731}
-  characterHead: {fileID: 8052528209930726633}
-  typeSpeed: 50
+  dialogueElements:
+    speakerNameTextBox: {fileID: 3188143796266648473}
+    dialogueUI: {fileID: 8830310805219507628}
+    dialogueTextBox: {fileID: 7776466842179050731}
+    characterHead: {fileID: 8052528209930726633}
 --- !u!1 &2720076650278253425
 GameObject:
   m_ObjectHideFlags: 0
