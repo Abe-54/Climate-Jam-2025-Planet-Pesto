@@ -27,9 +27,10 @@ MonoBehaviour:
       I look forward to...looking I suppose. Thank you for existence.  '
   - speakerName: Alina
     pharagraphs:
-    - "\tHm, in that case, if you wanna take a look around the place feel free, everything
-      here\u2019s your home too. While you\u2019re at it go introduce yourself to
-      Olean, he should be in his \u2018lab\u2019. Though he might be busier than
-      a moth in a mitten so take care around his \u2018creations\u2019. \r\n"
+    - "Hm, in that case, if you wanna take a look around the place feel free, everything
+      here\u2019s your home too. \r\n"
+    - "While you\u2019re at it go introduce yourself to Olean, he should be in his
+      \u2018lab\u2019. Though he might be busier than a moth in a mitten so take
+      care around his \u2018creations\u2019. \r\n"
   isEvent: 1
   eventName: AL1
