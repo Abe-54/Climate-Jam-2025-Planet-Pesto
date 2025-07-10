@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManagerPP : MonoBehaviour
@@ -7,6 +8,7 @@ public class GameManagerPP : MonoBehaviour
 
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
+
     private bool creatureFlag;
     private float intensityLevel = 1;
 
@@ -66,7 +68,6 @@ public class GameManagerPP : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-       
 
     }
 
