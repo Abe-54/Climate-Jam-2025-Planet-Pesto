@@ -13,32 +13,33 @@ using UnityEngine.UI;
 //Singleton for controlling dialogue 
 public class DialogueControllerPP : MonoBehaviour
 {
-    
+
     //Ensure singleton behavior
     public static DialogueControllerPP instance;
     private void Awake()
+    {
+       
+    }
+
+    private void Start()
     {
         //Ensure that this is the only gamemanager in scene
         if (instance == null)
         {
             instance = this;
+            dialogueUIElems = FindAnyObjectByType<MainUIPP>().GetDialogueElements();
+            DontDestroyOnLoad(this.gameObject);
         }
-        else if (instance != null)
+        else
         {
-            Destroy(this.gameObject);
+           Destroy(this.gameObject);
         }
-    }
+        
 
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
     }
 
     //Fields to control the dialogue UI
-    [SerializeField] TextMeshProUGUI speakerNameTextBox;
-    [SerializeField] GameObject dialogueUI;
-    [SerializeField] TextMeshProUGUI dialogueTextBox;
-    [SerializeField] Image characterHead;
+    [SerializeField] UIElements dialogueUIElems;
     [SerializeField] private float typeSpeed = 300;
     //Tracking whether or not the conversation has ended 
     private bool conEnded = false;
@@ -55,7 +56,7 @@ public class DialogueControllerPP : MonoBehaviour
 
     //Courotine for typing out dialogue 
     private Coroutine typeDialogueCoroutine;
-    
+
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
 
     private void OnEnable()
@@ -71,9 +72,9 @@ public class DialogueControllerPP : MonoBehaviour
 
     void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
     {
-      
+
     }
-    
+
     //Initiate next pharagraph or speaker or end convo 
     public void DisplayNextInstance(DialogueTextPP dialogueText)
     {
@@ -82,7 +83,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             if (!conEnded)
             {
-                EventBusPP<ConversationStartEvent>.Raise(new ConversationStartEvent{});
+                EventBusPP<ConversationStartEvent>.Raise(new ConversationStartEvent { });
                 StartConvo(dialogueText);
             }
             else if (conEnded && !isTyping)
@@ -102,9 +103,9 @@ public class DialogueControllerPP : MonoBehaviour
             curInstance = dialogueInstances.Dequeue();
             SelectHeadImage();
             SelectFont();
-            speakerNameTextBox.text = curInstance.speakerName;
+            dialogueUIElems.speakerNameTextBox.text = curInstance.speakerName;
             pharagraphEnded = false;
-            
+
         }
         DisplayNextPharagraph();
 
@@ -112,7 +113,7 @@ public class DialogueControllerPP : MonoBehaviour
         {
             conEnded = true;
         }
-        
+
     }
 
     //Display the next pharagraph 
@@ -132,7 +133,7 @@ public class DialogueControllerPP : MonoBehaviour
             }
         }
 
-        if (!isTyping )
+        if (!isTyping)
         {
             curPharagraph = pharagraphs.Dequeue();
             typeDialogueCoroutine = StartCoroutine(TypeDialogueText(curPharagraph));
@@ -142,21 +143,27 @@ public class DialogueControllerPP : MonoBehaviour
             FinishPharagraphEarly();
         }
 
-  
+
         if (pharagraphs.Count == 0)
         {
             pharagraphEnded = true;
         }
-        
+
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        dialogueUIElems = FindAnyObjectByType<MainUIPP>().GetDialogueElements();
+    }
     private void StartConvo(DialogueTextPP dialogueText)
     {
-        //Turn on 
-        if (!dialogueUI.activeSelf)
-        {
-            dialogueUI.SetActive(true);    
-        }
+
+       
+
+        dialogueUIElems.dialogueUI.SetActive(true);
+        
+        
+        
 
         //Queue them instances 
         for (int i = 0; i < dialogueText.dialogueInstances.Length; i++)
@@ -165,7 +172,7 @@ public class DialogueControllerPP : MonoBehaviour
         }
         curInstance = dialogueInstances.Dequeue();
         SelectHeadImage();
-        speakerNameTextBox.text = curInstance.speakerName;
+        dialogueUIElems.speakerNameTextBox.text = curInstance.speakerName;
         SelectFont();
 
     }
@@ -173,7 +180,7 @@ public class DialogueControllerPP : MonoBehaviour
     {
         pharagraphEnded = false;
         conEnded = false;
-        dialogueUI.SetActive(false);
+        dialogueUIElems.dialogueUI.SetActive(false);
     }
 
     private void StartParagraph()
@@ -192,14 +199,14 @@ public class DialogueControllerPP : MonoBehaviour
 
         int maxVisibleChars = 0;
 
-        dialogueTextBox.text = p;
-        dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
+        dialogueUIElems.dialogueTextBox.text = p;
+        dialogueUIElems.dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
 
         foreach (char c in p.ToCharArray())
         {
 
             maxVisibleChars++;
-            dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
+            dialogueUIElems.dialogueTextBox.maxVisibleCharacters = maxVisibleChars;
             AudioManagerPP.instance.PlayDialogueNoise(curInstance.speakerName,maxVisibleChars);
 
             yield return new WaitForSeconds(MAX_TYPE_TIME / typeSpeed);
@@ -214,8 +221,8 @@ public class DialogueControllerPP : MonoBehaviour
         StopCoroutine(typeDialogueCoroutine);
 
         //Finish displaying text
-        dialogueTextBox.maxVisibleCharacters = curPharagraph.Length;
-        dialogueTextBox.text = curPharagraph;
+        dialogueUIElems.dialogueTextBox.maxVisibleCharacters = curPharagraph.Length;
+        dialogueUIElems.dialogueTextBox.text = curPharagraph;
        
 
         //Update isTyping
@@ -229,18 +236,18 @@ public class DialogueControllerPP : MonoBehaviour
         {
             case "I.R.I.S":
                 {
-                    characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/IRIS");
+                    dialogueUIElems.characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/IRIS");
                     break;
                 }
             default:
                 {
                     if (Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName))
                     {
-                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
+                        dialogueUIElems.characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/" + curInstance.speakerName);
                     }
                     else
                     {
-                        characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/default");
+                        dialogueUIElems.characterHead.sprite = Resources.Load<Sprite>("Dialogue/Art/HeadShots/default");
                     }
                     break;
                 }
@@ -255,18 +262,18 @@ public class DialogueControllerPP : MonoBehaviour
             case "I.R.I.S":
                 {
                     Debug.Log("got here");
-                    dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/IRIS");
+                    dialogueUIElems.dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/IRIS");
                     break;
                 }
             default:
                 {
                     if (Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName))
                     {
-                        dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName);
+                        dialogueUIElems.dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts" + curInstance.speakerName);
                     }
                     else
                     {
-                        dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/default");
+                        dialogueUIElems.dialogueTextBox.font = Resources.Load<TMP_FontAsset>("Dialogue/Fonts/default");
                     }
                     break;
                 }

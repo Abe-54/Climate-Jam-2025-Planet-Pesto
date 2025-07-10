@@ -102,8 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d074660471c4a41957384f11f092b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSprite: {fileID: 0}
-  interactIcon: {fileID: 0}
   dialogueText: {fileID: 11400000, guid: d6712bb07e384404c91f273997dede70, type: 2}
   scannerText: {fileID: 11400000, guid: 824d1492783401a4a9847f773be5e268, type: 2}
   dialogueController: {fileID: 0}

@@ -11,8 +11,12 @@ public class RestExit : MonoBehaviour
         if (collision.tag == "Player")
         {
             GameManagerPP.instance.SetPlayerSpawn(playSpawnPos);
-            GameManagerPP.instance.ChangeScene(sceneName);
+            
             GameManagerPP.instance.SetIntensityLevel(2);
+            FindFirstObjectByType<SteamControllerPP>().AddSteam(100);
+
+
+            GameManagerPP.instance.ChangeScene(sceneName);
         }
     }
 }

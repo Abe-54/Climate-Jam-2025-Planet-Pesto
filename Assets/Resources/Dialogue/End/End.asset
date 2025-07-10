@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258738818a1c3046a69db5f64b77bb7, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  dialogueInstances:
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - I have returned.
+  - speakerName: Alina
+    pharagraphs:
+    - "Welcome home, are you ok? I hope it wasn\u2019t too bad out there."
+  - speakerName: Olean
+    pharagraphs:
+    - "You worried me half to death, I swear if Alina hadn\u2019t convinced me to
+      stay I would have gone out and..."
+    - "well I don\u2019t have any plants to fight fire but I could certainly throw
+      a couple watermelons at it."
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - I am fine, there were fires, bad ones although I believe I now know the cause.
+    - The smoke from the factories, it is releasing something into the air, and trapping
+      more heat in the air.
+    - I also do not believe watermelons contain enough water to sufficiently put
+      out a flame.
+  - speakerName: Olean
+    pharagraphs:
+    - Not yet they don't.
+  - speakerName: Alina
+    pharagraphs:
+    - "The factories? Well that ain\u2019t gonna be easy, I don\u2019t see them shutting
+      down anytime soon. Maybe we can go to city hall, try to let the officials know. "
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - 'There is more though, when I was returning I saw people. They had been affected
+      by the fires. Some had lost things and some had been hurt in more ways than
+      simply physical. All of them seemed scared and confused. '
+  - speakerName: Alina
+    pharagraphs:
+    - And what did you do?
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - Nothing, I simply observed I did not feel I could help with their distress
+      like I could yours.
+  - speakerName: Alina
+    pharagraphs:
+    - I.R.I.S I gave you have more than just your eyes. I gave you hands to reach
+      out to others and a voice to speak to them.
+    - I am sure if they knew the reasons for the fires they would try to find ways
+      to prevent them from happening again.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - I see I will do my best next time to undistress their stress
+  - speakerName: Olean
+    pharagraphs:
+    - "Your best is all you can do, and if it isn\u2019t enough just remember you're
+      never alone."
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - "I am physically incapable of forgetting anything, so I won\u2019t...I suppose"
+  - speakerName: Alina
+    pharagraphs:
+    - "Alright it\u2019s the suns gone to bed and so should we."
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - Oh I also believe the planet might be living dinosaurs.
+  - speakerName: I.R.I.S
+    pharagraphs:
+    - WHAT?!?
+  isEvent: 1
+  eventName: End

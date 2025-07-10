@@ -4,6 +4,7 @@ using UnityEngine.Timeline;
 public class TrainTriggerPP : MonoBehaviour
 {
     [SerializeField] private TimelineAsset triggeringCutscene;
+    [SerializeField] private AudioClip tramMusic;
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
     private bool TramRight;
@@ -22,6 +23,11 @@ public class TrainTriggerPP : MonoBehaviour
     {
         EventBusPP<ConversationEndEvent>.Deregister(conversationEndEvent);
         EventBusPP<ConversationStartEvent>.Deregister(conversationStartEvent);
+    }
+
+    private void Start()
+    {
+        AudioManagerPP.instance.PlayMusic(tramMusic);
     }
 
     public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)

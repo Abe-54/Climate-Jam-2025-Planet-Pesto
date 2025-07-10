@@ -10,6 +10,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
     [SerializeField] private DialogueTextPP scannerText;
     [SerializeField] private DialogueControllerPP dialogueController;
     [SerializeField] private Animator animator;
+    [SerializeField] private bool interactSpriteAvailable = true;
     private GameObject interact;
     
     //Variable to keep track of a players location
@@ -64,12 +65,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     private void Start()
     {
-        dialogueController = FindFirstObjectByType<DialogueControllerPP>();
- 
-        if (!dialogueController)
-        {
-            dialogueController = Object.FindFirstObjectByType<DialogueControllerPP>();
-        }
+        dialogueController = DialogueControllerPP.instance;
         if (!animator)
         {
             animator = GetComponent<Animator>();
@@ -121,13 +117,19 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             Debug.Log("SCANNER ENTERED");
             isBeingScanned = true;
             animator.SetBool("BeingScanned", true);
-            InteractSpriteToggle(true);
+            if (interactSpriteAvailable)
+            {
+                InteractSpriteToggle(true);
+            }
             
 
         }
         if (collision.gameObject.tag == "Player" && isInteractable)
         {
-            InteractSpriteToggle(true);
+            if (interactSpriteAvailable)
+            {
+                InteractSpriteToggle(true);
+            }
         }
 
     }
@@ -140,6 +142,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
             isBeingScanned = false;
             animator.SetBool("BeingScanned", false);
             InteractSpriteToggle(false);
+            
         }
         if (collision.gameObject.tag == "Player" && isInteractable)
         {
@@ -188,7 +191,7 @@ public abstract class NPCPP : MonoBehaviour, IIInteractablePP, IScanablePP
 
     public DialogueControllerPP GetDialogueController()
     {
-        return dialogueController;
+        return DialogueControllerPP.instance;
     }
 
     public bool GetIsBeingScanned()

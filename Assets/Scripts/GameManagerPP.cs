@@ -9,7 +9,7 @@ public class GameManagerPP : MonoBehaviour
     EventBindingPP<ConversationEndEvent> conversationEndEvent;
     EventBindingPP<ConversationStartEvent> conversationStartEvent;
 
-    private bool creatureFlag;
+    [SerializeField]private bool creatureFlag;
     private float intensityLevel = 1;
 
 
@@ -59,7 +59,7 @@ public class GameManagerPP : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (!FindAnyObjectByType<PlayerControllerPP>())
+        if (!FindAnyObjectByType<PlayerControllerPP>() && SceneManager.GetActiveScene().name != "Title Screen")
         {
             Instantiate(Resources.Load("Prefab/Player"), playSpawnPos, Quaternion.identity);
         }
