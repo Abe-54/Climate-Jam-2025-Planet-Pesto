@@ -129,7 +129,7 @@ public class PlayerControllerPP : MonoBehaviour
     }
     public void HandleConversationStartEvent(ConversationStartEvent conversationStartEvent)
     {
-        SetCanMove(true);
+        SetCanMove(false);
     }
 
     public void HandleConversationEndEvent(ConversationEndEvent conversationEndEvent)
