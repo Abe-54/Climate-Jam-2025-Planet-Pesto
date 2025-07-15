@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManagerPP : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class GameManagerPP : MonoBehaviour
 
 
     [SerializeField]private GameObject playSpawnPos;
-
+    [SerializeField] private GameObject[] playerCheckPoints;
+    [SerializeField] private GameObject[] fireWallCheckPoints;
+    private GameObject fireWallCurrentCheckpoint; // This is a single checkpoint, not an array
 
     private void OnEnable()
     {
@@ -117,17 +120,19 @@ public class GameManagerPP : MonoBehaviour
     internal void PlayerHitByFirewall()
     {
         Debug.Log("Player was hit by the firewall!");
-        // Implement logic for when the player is hit by the firewall
-        // This could be game over logic, reducing health, etc.
-        // For example, you might want to end the game or reduce the player's health.
-        // Example:
-        // PlayerControllerPP player = FindAnyObjectByType<PlayerControllerPP>();
-        // if (player != null)
-        // {
-        //     player.TakeDamage(1); // Assuming TakeDamage is a method in PlayerControllerPP
-        // }
-        // For now, we will just log a message.
-        // You can replace this with actual game logic as needed.
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject fireWall = GameObject.FindGameObjectWithTag("FireWall");
+        if (player == null || fireWall == null)
+        {
+            Debug.LogWarning("Player or FireWall not found!");
+        }
+        if (fireWallCurrentCheckpoint == null)
+        {
+            fireWallCurrentCheckpoint = fireWallCheckPoints[0]; // Default to the first checkpoint if none is set
+        }
+        player.transform.position = playerCheckPoints[0].transform.position; // Reset player position to the first checkpoint
+        fireWall.transform.position = fireWallCurrentCheckpoint.transform.position; // Reset firewall position to the current checkpoint
+        player.GetComponent<SteamControllerPP>().RemoveSteam(10); // Remove 10 steam units when hit by the firewall
     }
 }
 
