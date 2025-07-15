@@ -18,7 +18,7 @@ public class PlayerAnimationControllerPP : MonoBehaviour
         {
             animator.SetBool("IsMoving", false);
         }
-        else
+        else if(FindAnyObjectByType<PlayerControllerPP>().canPlayerMove)
         {
             animator.SetBool("IsMoving", true);
         }
