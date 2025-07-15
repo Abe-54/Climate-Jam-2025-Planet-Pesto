@@ -1,3 +1,4 @@
+using System;
 using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -113,6 +114,20 @@ public class GameManagerPP : MonoBehaviour
         intensityLevel = newIntensityLevel;
     }
 
-    
+    internal void PlayerHitByFirewall()
+    {
+        Debug.Log("Player was hit by the firewall!");
+        // Implement logic for when the player is hit by the firewall
+        // This could be game over logic, reducing health, etc.
+        // For example, you might want to end the game or reduce the player's health.
+        // Example:
+        // PlayerControllerPP player = FindAnyObjectByType<PlayerControllerPP>();
+        // if (player != null)
+        // {
+        //     player.TakeDamage(1); // Assuming TakeDamage is a method in PlayerControllerPP
+        // }
+        // For now, we will just log a message.
+        // You can replace this with actual game logic as needed.
+    }
 }
 
