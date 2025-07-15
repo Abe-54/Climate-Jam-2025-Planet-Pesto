@@ -12,9 +12,11 @@ public class SteamControllerPP : MonoBehaviour
     
     [Header("UI Requirements")]
     public Slider steam;
-    [SerializeField] float reductionSpeed = 1;
+    [SerializeField] float reductionSpeed = 2f;
+    private float newAmount;
 
     private bool steamEmptyFlag = false;
+    private bool steamChanging = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +38,21 @@ public class SteamControllerPP : MonoBehaviour
             steamEmptyFlag = true;
         }
 
-        UpdateSteamUI();
+        
+        if (steamChanging)
+        {
+            currentSteam = Mathf.Floor(Mathf.Lerp(currentSteam, newAmount, Time.deltaTime)*1f)/1f;
+            steam.value = currentSteam/maxSteam;
+            if (currentSteam == newAmount)
+            {
+                steamChanging = false;
+            }
+       
+        }
+     
+        
+
+       
     }
 
     void UpdateSteamUI()
@@ -46,9 +62,11 @@ public class SteamControllerPP : MonoBehaviour
 
     public void RemoveSteam(int amount)
     {
-        currentSteam -= amount;
+        newAmount = currentSteam - amount;
   
+        steamChanging = true;
 
+       
     }
 
     public void AddSteam(int amount)

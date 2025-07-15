@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 6190564947043531187}
   - component: {fileID: 5702480158243822959}
   - component: {fileID: 3582981492488814633}
+  - component: {fileID: 4300668096184309213}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -199,7 +200,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0186, y: -7.6372, z: 0}
-  m_LocalScale: {x: 0.55791634, y: 0.7119013, z: 0.55791634}
+  m_LocalScale: {x: 0.6944, y: 0.6944, z: 0.6944}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5635499656475705560}
@@ -252,7 +253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 5e3454ed3e6bab743bd0da0d499c4965, type: 3}
+  m_Sprite: {fileID: 9199514067465076494, guid: c5eef0000d86b8c458534a3f51b4cc96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -297,17 +298,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.0000014305115}
+  m_Offset: {x: 0.049632072, y: 0.12762809}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.89, y: 6.82}
+    oldSize: {x: 2.87, y: 5.3}
     newSize: {x: 4.89, y: 6.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.2222476, y: 5.7149973}
+  m_Size: {x: 2.8110065, y: 5.459744}
   m_EdgeRadius: 0
 --- !u!50 &3176187240368696245
 Rigidbody2D:
@@ -365,6 +366,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5702480158243822959}
         m_TargetAssemblyTypeName: PlayerControllerPP, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4300668096184309213}
+        m_TargetAssemblyTypeName: PlayerAnimationControllerPP, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -564,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scannerObj: {fileID: 3862573861829832897}
   canPlayerMove: 1
-  moveSpeed: 10
+  moveSpeed: 15
   runAccelAmount: 90
   runDeccelAmount: 60
   accelInAir: 0.65
@@ -583,7 +596,7 @@ MonoBehaviour:
   jumpInputBufferTime: 0.1
   frontWallCheck: {fileID: 9032820103831790658}
   backWallCheck: {fileID: 2471976135112717642}
-  wallCheckSize: {x: 0.5, y: 1}
+  wallCheckSize: {x: 1, y: 2}
   wallJumpForce: {x: 25, y: 25}
   wallJumpTime: 0.6
   wallJumpRunLerp: 0.05
@@ -608,7 +621,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031392370045111264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0b5f0949a0635f74ea5d6b5da57b6ae0, type: 2}
   m_CullingMode: 0
@@ -622,6 +635,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4300668096184309213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031392370045111264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589758ffcedd8684888d3b4082b7e08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &6541326524748457385
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +673,7 @@ Transform:
   m_GameObject: {fileID: 6541326524748457385}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: -2.71, z: 0}
+  m_LocalPosition: {x: 0.12, y: -2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -679,7 +705,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.45, y: -0.49, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2833, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5720579704025933445}
