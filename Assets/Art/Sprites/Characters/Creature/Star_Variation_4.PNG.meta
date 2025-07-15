@@ -112,7 +112,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -675,7 +675,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -684,7 +684,30 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Star_Variation_4_0: -2831530863768835776
+      Star_Variation_4_1: 142000056657003182
+      Star_Variation_4_10: -4431607536223298985
+      Star_Variation_4_11: 1552161584234062639
+      Star_Variation_4_12: -4700418022360061847
+      Star_Variation_4_13: -796820974157060928
+      Star_Variation_4_14: 3243319735025812147
+      Star_Variation_4_15: -6470402563950419883
+      Star_Variation_4_16: 1200554778089024050
+      Star_Variation_4_17: 7703330673499677947
+      Star_Variation_4_18: -4494929095454944847
+      Star_Variation_4_19: -3155349518696611019
+      Star_Variation_4_2: -1442168274059216858
+      Star_Variation_4_20: 4091699820536817461
+      Star_Variation_4_21: -1992095839136738428
+      Star_Variation_4_22: 4945089954046095998
+      Star_Variation_4_3: 8561512892927944733
+      Star_Variation_4_4: -568880573858797148
+      Star_Variation_4_5: 3022317318590498969
+      Star_Variation_4_6: 44557331524476405
+      Star_Variation_4_7: 1069745895927108466
+      Star_Variation_4_8: -7257002729676847304
+      Star_Variation_4_9: 1998041764054902944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

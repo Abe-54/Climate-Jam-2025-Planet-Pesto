@@ -163,7 +163,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -1100,7 +1100,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -1109,7 +1109,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Star_Variation_3_0: -9092984600787870278
+      Star_Variation_3_1: 1174244372673878299
+      Star_Variation_3_10: 6876112412631975259
+      Star_Variation_3_11: -6522380004457104323
+      Star_Variation_3_12: -4994183534116318587
+      Star_Variation_3_13: 1408780052926348238
+      Star_Variation_3_14: -2591810125249211935
+      Star_Variation_3_15: 3988847511305108225
+      Star_Variation_3_16: 1020450283330871218
+      Star_Variation_3_17: -193575752975895352
+      Star_Variation_3_18: -2543210144025342681
+      Star_Variation_3_19: -8790596207562221343
+      Star_Variation_3_2: -1003817578266754206
+      Star_Variation_3_20: -677424366665293473
+      Star_Variation_3_21: 7042727960177053517
+      Star_Variation_3_22: -6333484609405309093
+      Star_Variation_3_23: 7358288856890971198
+      Star_Variation_3_24: -3855916025677877928
+      Star_Variation_3_25: -8952507489129291593
+      Star_Variation_3_26: 3464739915122844084
+      Star_Variation_3_27: 1455186991846307223
+      Star_Variation_3_28: -4427510056883703126
+      Star_Variation_3_29: -1143353644694045135
+      Star_Variation_3_3: 6466427633731740736
+      Star_Variation_3_30: -3605975883040967933
+      Star_Variation_3_31: 438203951635737245
+      Star_Variation_3_32: -2538140498279388298
+      Star_Variation_3_33: -8617372111384913670
+      Star_Variation_3_34: -1777060338451933279
+      Star_Variation_3_35: -3458535360508782515
+      Star_Variation_3_36: 5171189874713742150
+      Star_Variation_3_37: 8639424923763717273
+      Star_Variation_3_38: 3465763817132633274
+      Star_Variation_3_39: -7308856139977936191
+      Star_Variation_3_4: -4980766420153126525
+      Star_Variation_3_5: -1952907003632191961
+      Star_Variation_3_6: 3372685480430278192
+      Star_Variation_3_7: -3024425192035503056
+      Star_Variation_3_8: -4713509317814376637
+      Star_Variation_3_9: 9134189635152433238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
