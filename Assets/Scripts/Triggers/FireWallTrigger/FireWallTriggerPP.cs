@@ -35,6 +35,10 @@ public class FireWallTriggerPP : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (spawnPoint == null)
+        {
+            Debug.LogError("Spawn point is not assigned in the FireWallTriggerPP script.");
+        }
         if (collision.gameObject.CompareTag("Player") && !isFireWallTriggered && GameManagerPP.instance.GetCreatureFlag())
         {
             // Trigger the firewall when the player enters the trigger area

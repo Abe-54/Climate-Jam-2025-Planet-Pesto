@@ -23,4 +23,14 @@ public class FirewallMovingPP : MonoBehaviour
     {
         gameObject.transform.Translate(Vector2.left * speed * Time.deltaTime); // Move the firewall left
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            // Handle player being hit by the firewall
+            GameManagerPP.instance.PlayerHitByFirewall();
+            // You can add more game over or damage logic here
+        }
+    }
 }
