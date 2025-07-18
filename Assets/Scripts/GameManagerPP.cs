@@ -19,6 +19,8 @@ public class GameManagerPP : MonoBehaviour
     [SerializeField] private GameObject[] playerCheckPoints;
     [SerializeField] private GameObject[] fireWallCheckPoints;
     private GameObject fireWallCurrentCheckpoint; // This is a single checkpoint, not an array
+    private GameObject playerCurrentCheckpoint; // This is a single checkpoint, not an array
+    private int fireWallCurrentCheckpointIndex = 0; // Index of the current firewall checkpoint
 
     private void OnEnable()
     {
@@ -119,7 +121,6 @@ public class GameManagerPP : MonoBehaviour
 
     internal void PlayerHitByFirewall()
     {
-        Debug.Log("Player was hit by the firewall!");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject fireWall = GameObject.FindGameObjectWithTag("FireWall");
         if (player == null || fireWall == null)
@@ -130,9 +131,21 @@ public class GameManagerPP : MonoBehaviour
         {
             fireWallCurrentCheckpoint = fireWallCheckPoints[0]; // Default to the first checkpoint if none is set
         }
-        player.transform.position = playerCheckPoints[0].transform.position; // Reset player position to the first checkpoint
+        if (playerCurrentCheckpoint == null)
+        {
+            playerCurrentCheckpoint = playerCheckPoints[0]; // Default to the first checkpoint if none is set
+        }
+        player.transform.position = playerCurrentCheckpoint.transform.position; // Reset player position to the current checkpoint
         fireWall.transform.position = fireWallCurrentCheckpoint.transform.position; // Reset firewall position to the current checkpoint
         player.GetComponent<SteamControllerPP>().RemoveSteam(10); // Remove 10 steam units when hit by the firewall
+    }
+
+    internal void SetPlayerCurrentCheckpoint(GameObject gameObject, int checkpointIndex)
+    {
+        playerCurrentCheckpoint = gameObject; // Set the player's current checkpoint to the provided game object
+        fireWallCurrentCheckpointIndex = checkpointIndex; // Set the index of the current firewall checkpoint
+        fireWallCurrentCheckpoint = fireWallCheckPoints[checkpointIndex]; // Set the current firewall checkpoint based on the index
+        Debug.Log("Player has reached a checkpoint: " + gameObject.name + " with index: " + checkpointIndex);
     }
 }
 

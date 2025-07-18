@@ -30,7 +30,6 @@ public class FirewallMovingPP : MonoBehaviour
         {
             // Handle player being hit by the firewall
             GameManagerPP.instance.PlayerHitByFirewall();
-            Debug.Log("Player was hit by the firewall!");
             // You can add more game over or damage logic here
         }
     }
