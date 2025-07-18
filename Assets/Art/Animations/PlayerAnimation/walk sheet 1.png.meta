@@ -1034,7 +1034,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walk sheet 1_0: -2020069138757499295
+      walk sheet 1_1: -8213153193538804345
+      walk sheet 1_10: 4502221857951529951
+      walk sheet 1_11: 4403784501079163382
+      walk sheet 1_12: 5153856068951441341
+      walk sheet 1_13: 5924400054135170732
+      walk sheet 1_14: -2619338480998676648
+      walk sheet 1_15: 5187513971981999763
+      walk sheet 1_16: 4475026730946780585
+      walk sheet 1_17: -5667107841676074902
+      walk sheet 1_18: 8252112648746899307
+      walk sheet 1_19: -1451153391987688192
+      walk sheet 1_2: -2466309863329737201
+      walk sheet 1_20: 273230179101329953
+      walk sheet 1_21: -7071052461137814570
+      walk sheet 1_22: -2737005085478961676
+      walk sheet 1_23: 1910064669643067198
+      walk sheet 1_24: -545698255415880315
+      walk sheet 1_25: -418115183484931289
+      walk sheet 1_26: -7274231728207768949
+      walk sheet 1_27: -6562539325414739730
+      walk sheet 1_28: -4888617592922490638
+      walk sheet 1_29: 3117391137548518213
+      walk sheet 1_3: -3633924797977313951
+      walk sheet 1_30: -995671874854222540
+      walk sheet 1_31: 7195611984716690411
+      walk sheet 1_32: -1916387171775355055
+      walk sheet 1_33: -75650818326192013
+      walk sheet 1_34: 3467599340273760170
+      walk sheet 1_35: 8314753144757192213
+      walk sheet 1_36: 7314664901737602666
+      walk sheet 1_4: 6528013759388817898
+      walk sheet 1_5: 3222727335270159876
+      walk sheet 1_6: -8909193816906827544
+      walk sheet 1_7: -6039564577249023050
+      walk sheet 1_8: -7717785808116622866
+      walk sheet 1_9: -2800164477814415346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
