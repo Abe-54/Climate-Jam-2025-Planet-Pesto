@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour {
 
 public void PauseToggle()
 {
-    
     if (GameIsPaused)
     {
         Resume();
@@ -18,7 +17,6 @@ public void PauseToggle()
     {
         Pause();
     }
-    
 }
 
 public void Resume() {

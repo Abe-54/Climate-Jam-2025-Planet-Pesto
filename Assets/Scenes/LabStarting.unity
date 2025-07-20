@@ -875,7 +875,7 @@ MonoBehaviour:
   triggeringEvent: AL2
   triggeringCutscene: {fileID: 11400000, guid: b87424ba031a8fa49aac9ec7d610a211, type: 2}
   StartingCutscene: {fileID: 11400000, guid: 9c445432a2c0c6d4a81311a9130ff522, type: 2}
-  IntroCutscene: 1
+  IntroCutscene: 0
   infiniteDash: 1
   labMusic: {fileID: 0}
 --- !u!4 &637061020
