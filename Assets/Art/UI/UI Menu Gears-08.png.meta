@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 485fed2a2e2824c44a2c6f0911c1d6df
+guid: 7ccdb7e7a1f45fc48a99da65acc4996e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5435114035174618270
-    second: Illustration13_0
+      213: -8545752443208979476
+    second: UI Menu Gears-08_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Illustration13_0
+      name: UI Menu Gears-08_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2415
-        height: 1080
+        x: 514
+        y: 426
+        width: 398
+        height: 405
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e94b2542b676d6b40800000000000000
-      internalID: 5435114035174618270
+      spriteID: ceb2a142e63676980800000000000000
+      internalID: -8545752443208979476
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Illustration13_0: 5435114035174618270
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
