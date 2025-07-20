@@ -62,7 +62,8 @@ public class GameManagerPP : MonoBehaviour
         if (!FindAnyObjectByType<PlayerControllerPP>() && playSpawnPos && SceneManager.GetActiveScene().name != "Title Screen")
         {
 
-            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos.transform.position, Quaternion.identity);
+            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos.transform.localToWorldMatrix.GetPosition(), Quaternion.identity);
+            Debug.Log(playSpawnPos.transform.localToWorldMatrix.GetPosition());
 
         }
     }
@@ -77,9 +78,9 @@ public class GameManagerPP : MonoBehaviour
     {
         if (!FindAnyObjectByType<PlayerControllerPP>()  && playSpawnPos)
         {
-            
-             Instantiate(Resources.Load("Prefab/Player"), playSpawnPos.transform.position, Quaternion.identity);
-            
+
+            Instantiate(Resources.Load("Prefab/Player"), playSpawnPos.transform.localToWorldMatrix.GetPosition(), Quaternion.identity);
+
         }
 
     }
