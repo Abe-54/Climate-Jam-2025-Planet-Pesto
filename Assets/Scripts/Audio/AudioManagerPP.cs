@@ -51,6 +51,26 @@ public class AudioManagerPP : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
+    public void PlaySFXClipRandom(AudioClip[] audioClips, Transform spawnTransform, float volume)
+    {
+        //Spawn in game object
+        AudioSource audioSource = Instantiate(sfxSource, spawnTransform.position, Quaternion.identity);
+
+        int randomIndex = Random.Range(0, curCharacter.dialogueTypingSoundClips.Length);
+
+        AudioClip audioClip = audioClips[randomIndex];
+        audioSource.clip = audioClip;
+
+        audioSource.volume = volume;
+
+        audioSource.Play();
+
+        float clipLength = audioSource.clip.length;
+
+        Destroy(audioSource.gameObject, clipLength);
+    }
+
+
     public void PlayCinamaticSFXClip(AudioClip audioClip, float volume)
     {
       
@@ -90,16 +110,22 @@ public class AudioManagerPP : MonoBehaviour
             SwitchCurCharacter(speakerName); 
         }
 
-        if (dialogueSource.isPlaying)
+        if (dialogueSource.isPlaying && curCharacter.stopAudioSource)
         {
            dialogueSource.Stop();
+        }
+        else if(dialogueSource.isPlaying && curCharacter.letFinish)
+        {
+            return;
         }
         //Ensure the audio is only played at the characters frequency level
         if (displayCount % curCharacter.frequencyLevel == 0)
         {
             //Randomizing clip and pitch
             int randomIndex = Random.Range(0, curCharacter.dialogueTypingSoundClips.Length);
+
             dialogueSource.clip = curCharacter.dialogueTypingSoundClips[randomIndex];
+            dialogueSource.volume = curCharacter.volume;
             dialogueSource.pitch = Random.Range(curCharacter.minPitch, curCharacter.maxPitch);
             dialogueSource.Play();
         }
