@@ -140,8 +140,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+    
         rb2d = GetComponent<Rigidbody2D>();
         steamController = GetComponent<SteamControllerPP>();
         defaultGravityScale = rb2d.gravityScale;

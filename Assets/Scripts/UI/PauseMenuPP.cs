@@ -3,24 +3,23 @@ using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour {
    
-    public static bool GameIsPaused = false;
+    public  bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
 
-    void PauseToggle(InputAction.CallbackContext ctx)
+public void PauseToggle()
+{
+    
+    if (GameIsPaused)
     {
-        if (ctx.performed)
-        {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        Resume();
     }
+    else
+    {
+        Pause();
+    }
+    
+}
 
 public void Resume() {
     pauseMenuUI.SetActive(false);
@@ -43,4 +42,13 @@ void Pause() {
     {
         Debug.Log("Qutting game...");
     }
+
+    public GameObject GetPauseMenu()
+    {
+        return pauseMenuUI;
+    }
+
 }
+
+
+
