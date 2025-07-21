@@ -51,10 +51,13 @@ public class AudioManagerPP : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-    public void PlaySFXClipRandom(AudioClip[] audioClips, Transform spawnTransform, float volume)
+    public void PlaySFXClipRandom(AudioClip[] audioClips, Transform spawnTransform, float volume,bool letFinish,AudioSource audioSource)
     {
-        //Spawn in game object
-        AudioSource audioSource = Instantiate(sfxSource, spawnTransform.position, Quaternion.identity);
+
+        if (audioSource.isPlaying && letFinish)
+        {
+            return;
+        }
 
         int randomIndex = Random.Range(0, curCharacter.dialogueTypingSoundClips.Length);
 
@@ -66,8 +69,6 @@ public class AudioManagerPP : MonoBehaviour
         audioSource.Play();
 
         float clipLength = audioSource.clip.length;
-
-        Destroy(audioSource.gameObject, clipLength);
     }
 
 
