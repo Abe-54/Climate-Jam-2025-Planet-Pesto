@@ -59,7 +59,7 @@ public class AudioManagerPP : MonoBehaviour
             return;
         }
 
-        int randomIndex = Random.Range(0, curCharacter.dialogueTypingSoundClips.Length);
+        int randomIndex = Random.Range(0, audioClips.Length);
 
         AudioClip audioClip = audioClips[randomIndex];
         audioSource.clip = audioClip;
