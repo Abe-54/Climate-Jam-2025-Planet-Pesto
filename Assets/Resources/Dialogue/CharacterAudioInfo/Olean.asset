@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Olean
   dialogueTypingSoundClips:
-  - {fileID: 8300000, guid: 982d7f1f62175434884b1561faf6ff34, type: 3}
-  - {fileID: 8300000, guid: 33c977b6695310d42bf545138b466e46, type: 3}
-  frequencyLevel: 4
+  - {fileID: 8300000, guid: fd8c80ee12281a74eba9ced33eccaa64, type: 3}
+  - {fileID: 8300000, guid: 91c0b1c3d582b184985b2af6874a52ff, type: 3}
+  - {fileID: 8300000, guid: 5993ef167c0680b4d951123f074ab7ad, type: 3}
+  frequencyLevel: 3
   minPitch: 1
-  maxPitch: 1.12
+  maxPitch: 1.03
   stopAudioSource: 0

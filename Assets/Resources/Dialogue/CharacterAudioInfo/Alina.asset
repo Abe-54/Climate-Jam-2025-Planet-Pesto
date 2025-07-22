@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Alina
   dialogueTypingSoundClips:
-  - {fileID: 8300000, guid: 982d7f1f62175434884b1561faf6ff34, type: 3}
-  - {fileID: 8300000, guid: 33c977b6695310d42bf545138b466e46, type: 3}
+  - {fileID: 8300000, guid: c7331ae6bec0f43448c908741b036ac9, type: 3}
+  - {fileID: 8300000, guid: e7578a869c5f3dc4f974a588258fb23c, type: 3}
+  - {fileID: 8300000, guid: 17c835bc8af18a4449c4d030dec58ce8, type: 3}
   frequencyLevel: 4
   minPitch: 1
   maxPitch: 1.12

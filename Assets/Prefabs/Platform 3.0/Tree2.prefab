@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4176961390761564059}
   - component: {fileID: 8587607213362672535}
   - component: {fileID: 7674274159470021876}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204981155353116471}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 95, y: -20.899996, z: 0}
   m_LocalScale: {x: 0.8197, y: 0.81969994, z: 0.8197}
   m_ConstrainProportionsScale: 0

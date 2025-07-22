@@ -48,7 +48,7 @@ MonoBehaviour:
   - speakerName: I.R.I.S
     pharagraphs:
     - ...Could you explain it to me?
-  - speakerName: 'The Creature '
+  - speakerName: The Creature
     pharagraphs:
     - I can, the smoke that comes from your machine houses. It rises into the air
       and prevents heat from leaving my atmosphere.
@@ -61,13 +61,13 @@ MonoBehaviour:
   - speakerName: I.R.I.S
     pharagraphs:
     - Are you ok?
-  - speakerName: 'The Creature '
+  - speakerName: The Creature
     pharagraphs:
     - I am fine.
   - speakerName: I.R.I.S
     pharagraphs:
     - But if you are everything does it not hurt when forests burn?
-  - speakerName: 'The Creature '
+  - speakerName: The Creature
     pharagraphs:
     - I was made in fire, my core is molten from condensed rock. I will continue
       on even if every forest were to burn.

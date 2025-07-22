@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1877765362209327570}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 247.6, y: 5.3, z: 0}
+  m_LocalPosition: {x: 192.15, y: -0.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Creature
-  playSpawnPos: {x: 0, y: 0, z: 0}
+  playSpawnPos: {fileID: 2580943814634941716, guid: f2577485a7f09c24c96b9863bf3f2b37, type: 3}
 --- !u!61 &1679385503807178576
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.6041794, y: 6.746666}
+  m_Offset: {x: -0.25590515, y: 9.433334}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -91,5 +91,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.8334503, y: 21.944862}
+  m_Size: {x: 5.136902, y: 27.3182}
   m_EdgeRadius: 0

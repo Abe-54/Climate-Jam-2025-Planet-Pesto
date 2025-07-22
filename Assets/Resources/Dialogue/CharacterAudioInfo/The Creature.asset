@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a2184e142ae914589ab9a79a9293bf, type: 3}
+  m_Name: The Creature
+  m_EditorClassIdentifier: 
+  name: The Creature
+  dialogueTypingSoundClips:
+  - {fileID: 8300000, guid: 12ed1caecb864714eae4152bf869db55, type: 3}
+  - {fileID: 8300000, guid: 2ea579913ce991d4ea62b752f9d4361a, type: 3}
+  - {fileID: 8300000, guid: bace90487782c6140ba7bf6da7719af1, type: 3}
+  - {fileID: 8300000, guid: 0a4625fa22f809242b4fdbd8e1970537, type: 3}
+  frequencyLevel: 3
+  minPitch: 1
+  maxPitch: 1.12
+  stopAudioSource: 0
+  letFinish: 1

@@ -140,8 +140,7 @@ public class PlayerControllerPP : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+    
         rb2d = GetComponent<Rigidbody2D>();
         steamController = GetComponent<SteamControllerPP>();
         defaultGravityScale = rb2d.gravityScale;
@@ -241,6 +240,7 @@ public class PlayerControllerPP : MonoBehaviour
             // Regular Jump
             if (CanJump() && LastPressedJumpTime > 0)
             {
+
                 IsJumping = true;
                 IsWallJumping = false;
                 _isJumpCut = false;
@@ -285,7 +285,8 @@ public class PlayerControllerPP : MonoBehaviour
             {
                 steamController.RemoveSteam(dashSteamUsageAmt);
             }
-            
+
+            FindAnyObjectByType<PlayerAudioControllerPP>().PlayMovementSFX(PlayerSFXType.dashing);
             // STARTING THE DASH HERE
             StartCoroutine(StartDash(_lastDashDir));
         }
@@ -360,6 +361,7 @@ public class PlayerControllerPP : MonoBehaviour
     // and resets any variables related to it
     void Jump()
     {
+        FindAnyObjectByType<PlayerAudioControllerPP>().PlayMovementSFX(PlayerSFXType.jumping);
         LastPressedJumpTime = 0;
         LastOnGroundTime = 0;
     
@@ -428,6 +430,7 @@ public class PlayerControllerPP : MonoBehaviour
     // It requires the direction to dash in and resets any variables needed DURING the dash
     IEnumerator StartDash(Vector2 dir)
     {
+
         // Reseting necessery variables
         LastOnGroundTime = 0;
         LastPressedDashTime = 0;
