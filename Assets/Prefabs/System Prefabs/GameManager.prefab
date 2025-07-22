@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3a60d7def271e47ac78eb10031cc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureFlag: 0
+  playSpawnPos: {fileID: 0}
+  playerCheckPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  fireWallCheckPoints:
+  - {fileID: 0}
+  - {fileID: 0}
