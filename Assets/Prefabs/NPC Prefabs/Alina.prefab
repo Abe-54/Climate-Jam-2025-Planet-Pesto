@@ -79,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 21d2da5b1d99e3d4badc31af1641fe65, type: 3}
+  m_Sprite: {fileID: 4908715670772476099, guid: 8201e690d7819234d9ad3f211caa2c54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.25, y: 10.8}
+  m_Size: {x: 5.03, y: 10.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,6 +106,7 @@ MonoBehaviour:
   scannerText: {fileID: 11400000, guid: 824d1492783401a4a9847f773be5e268, type: 2}
   dialogueController: {fileID: 0}
   animator: {fileID: 5343557157904801369}
+  interactSpriteAvailable: 1
   isInteractable: 1
   isScannable: 1
 --- !u!61 &1666689153844302580
@@ -146,8 +147,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.25, y: 10.8}
-    newSize: {x: 7.25, y: 10.8}
+    oldSize: {x: 5.03, y: 10.47}
+    newSize: {x: 5.03, y: 10.47}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
